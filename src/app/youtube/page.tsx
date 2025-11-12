@@ -124,14 +124,15 @@ export default function YouTubePage() {
                     .filter(([group]) => group === activeGroup)
                     .map(([group, subs]) => (
                       <section key={group}>
-                        <h3 className="text-xl font-semibold mb-3 capitalize">{group}</h3>
+                        <h3 className="text-xl font-semibold mb-3">{group.replace(/\b\w/g, (l) => l.toUpperCase())}</h3>
                         {Object.entries(subs).map(([sub, items]) => {
                           const key = `${group}:${sub}`;
                           const isExpanded = !!expanded[key];
                           const visible = isExpanded ? items : items.slice(0, 4);
+                          const displayName = sub.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
                           return (
                             <div key={sub} className="mb-6">
-                              <h4 className="text-lg font-medium mb-3 capitalize">{sub.replace(/-/g, ' ')}</h4>
+                              <h4 className="text-lg font-medium mb-3">{displayName}</h4>
                               <div className="space-y-4">
                                 {visible.map((video) => (
                                   <Card

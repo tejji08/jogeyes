@@ -35,7 +35,7 @@ export default function PhotographyPage() {
               }, {} as Record<string, typeof photographySamples>)
             ).map(([category, items]) => (
               <section key={category}>
-                <h3 className="text-xl font-semibold mb-4 capitalize">{category.replace('-', ' ')}</h3>
+                <h3 className="text-xl font-semibold mb-4">{category.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {items.map((p) => (
                     <Card key={p.id} className="overflow-hidden bg-card/50 wood-texture border-2 border-wood-accent/30">

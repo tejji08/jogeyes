@@ -70,13 +70,13 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="text-lg bg-green-600 hover:bg-green-700 text-white">
+            <Button asChild size="lg" className="text-lg bg-wood-accent hover:bg-wood-accent/90 text-wood-dark">
               <Link href="/youtube">
                 <Youtube className="w-5 h-5 mr-2" />
                 Watch Videos
               </Link>
             </Button>
-            <Button asChild size="lg" className="text-lg bg-green-600 hover:bg-green-700 text-white">
+            <Button asChild size="lg" className="text-lg bg-wood-accent hover:bg-wood-accent/90 text-wood-dark">
               <Link href="/writing">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Read Stories
