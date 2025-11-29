@@ -90,7 +90,7 @@ export const posts: Post[] = [
     likes: 0,
     comments: 0,
     date: "2025-11-02",
-  }
+  },
   {
     id: "8",
     title: "The Need to Sleep",
