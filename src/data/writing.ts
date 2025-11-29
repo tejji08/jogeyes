@@ -16,9 +16,9 @@ export interface Post {
 export const posts: Post[] = [
   {
     id: "1",
-    title: "Whispers in the Dark",
-    excerpt: "A journey through the shadows of midnight thoughts...",
-    content: "In the silence of the night, when stars align and dreams take flight...",
+    title: "The Hungry Man",
+    excerpt: "a man with a large appetite",
+    content: "he sat at the counter, ready to eat cheekbones sunken and arms thin he looked famished, devoid of life as he shifted around on the large seat a man came to his side, food in a bin he sat still, his hunger rife in a minute, the bin was cleared the man was still starved for more and yet he would still be fed bin afte bin, platter after platter the next stack of food was tiered and yet he finished that, and didn't even eye the door the owner looked around, he was out of food he had fed the man everything he had and was left with nothing to spare he thought if he filled every desire the man would leave without doing something bad the man would exit without doing something crude but the man was a bear and he ate the owner too",
     tag: "poetry",
     views: 1247,
     likes: 89,
@@ -82,6 +82,17 @@ export const posts: Post[] = [
   },
   {
     id: "7",
+    title: "The Need to Sleep",
+    excerpt: "A short story about coffee, trains, and small miracles.",
+    content: "He missed the first train, but the second one brought everything into focus...",
+    tag: "story",
+    views: 0,
+    likes: 0,
+    comments: 0,
+    date: "2025-11-02",
+  }
+  {
+    id: "8",
     title: "The Need to Sleep",
     excerpt: "A short story about coffee, trains, and small miracles.",
     content: "He missed the first train, but the second one brought everything into focus...",
