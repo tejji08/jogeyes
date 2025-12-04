@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-wood-accent bg-clip-text text-transparent">
-            Creative Portfolio
+            Jogeyes Home Page
           </h1>
           
           <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12">
