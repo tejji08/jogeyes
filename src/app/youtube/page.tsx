@@ -113,7 +113,7 @@ export default function YouTubePage() {
               <div className="flex items-center gap-3 mb-4">
                 {groups.map((g) => (
                   <button key={g} onClick={() => setActiveGroup(g)} className={`px-3 py-1 rounded ${g === activeGroup ? 'bg-wood-accent text-wood-dark' : 'bg-card/30'}`}>
-                    {g}
+                    {g.replace(/\b\w/g, (l) => l.toUpperCase())}
                   </button>
                 ))}
               </div>
@@ -179,7 +179,7 @@ export default function YouTubePage() {
                                     onClick={() => setExpanded((s) => ({ ...s, [key]: !s[key] }))}
                                     className="px-3 py-2 rounded bg-card/30"
                                   >
-                                    {isExpanded ? 'Show less' : `Show all ${items.length}`}
+                                    {isExpanded ? 'Show Less' : `Show All ${items.length}`}
                                   </button>
                                 </div>
                               )}
