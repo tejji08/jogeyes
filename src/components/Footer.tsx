@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link";
-import { Github, Youtube, Music, Mail, Sparkles } from "lucide-react";
+import { Github, Youtube, BookOpen, Mail, Sparkles } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
     { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Music, href: "/music", label: "Music" },
+    { icon: BookOpen, href: "/writing", label: "Writing" },
     { icon: Github, href: "#", label: "GitHub" },
     { icon: Mail, href: "#", label: "Email" },
   ];
@@ -23,7 +23,7 @@ export default function Footer() {
               <h3 className="text-lg font-bold aero-text">Jogeyes</h3>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Gaming &amp; guitar, original music, fiction, and photography — all in one place.
+              Gaming &amp; guitar, fiction, and photography — all in one place.
             </p>
           </div>
 

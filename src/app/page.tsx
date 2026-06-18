@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Youtube, Music, BookOpen, Users, ArrowRight, Camera } from "lucide-react";
+import { Youtube, BookOpen, Users, ArrowRight, Camera } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -16,13 +16,6 @@ export default function Home() {
       icon: Youtube,
       href: "/youtube",
       color: "from-red-400 to-rose-500",
-    },
-    {
-      title: "Music",
-      description: "Original tracks made in Cubase — ambient, retrowave, orchestral, and acoustic.",
-      icon: Music,
-      href: "/music",
-      color: "from-violet-400 to-purple-500",
     },
     {
       title: "Photography",
