@@ -5,7 +5,7 @@ import { Github, Youtube, BookOpen, Mail, Sparkles } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Youtube, href: "https://www.youtube.com/@Jogeyes", label: "YouTube" },
     { icon: BookOpen, href: "/writing", label: "Writing" },
     { icon: Github, href: "#", label: "GitHub" },
     { icon: Mail, href: "#", label: "Email" },
