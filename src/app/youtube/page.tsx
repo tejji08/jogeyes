@@ -11,13 +11,14 @@ import MotionWrapper from "@/components/MotionWrapper";
 import ImageWithPlaceholder from "@/components/ImageWithPlaceholder";
 
 export default function YouTubePage() {
-  const [selectedVideo, setSelectedVideo] = useState<string>("dQw4w9WgXcQ");
+  const [selectedVideo, setSelectedVideo] = useState<string>(videos[0]?.id ?? "");
   const [shouldLoadIframe, setShouldLoadIframe] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // videos are imported from src/data/videos.ts for easy editing
+  // videos are imported from src/data/videos.ts (backed by videos.json) for easy editing
 
   const current = videos.find((v) => v.id === selectedVideo);
+  const embedId = (current?.youtubeId || "").trim();
 
   function handleSelect(id: string) {
     setSelectedVideo(id);
@@ -45,13 +46,17 @@ export default function YouTubePage() {
 
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <Guitar className="w-10 h-10 text-wood-accent" />
-              <h1 className="text-4xl sm:text-5xl font-bold">YouTube Channel</h1>
+          <div className="mb-8 pt-8">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
+                <Guitar className="w-6 h-6" />
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold">
+                <span className="aero-text">YouTube</span>
+              </h1>
             </div>
-            <p className="text-xl text-muted-foreground">
-              Watch my latest guitar covers, original music, and creative content
+            <p className="text-lg text-muted-foreground">
+              Gaming runs, guitar covers, and creative edits — Doom, Yakuza, Forza, Minecraft, and Master of Puppets.
             </p>
           </div>
 
@@ -59,7 +64,7 @@ export default function YouTubePage() {
           <div className="mb-12">
             <Card className="relative overflow-hidden bg-card/50 wood-texture border-2 border-wood-accent/30">
               <div className="aspect-video bg-black">
-                {shouldLoadIframe ? (
+                {shouldLoadIframe && embedId ? (
                   <>
                     {isLoading && (
                       <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40">
@@ -69,7 +74,7 @@ export default function YouTubePage() {
                     <iframe
                       width="100%"
                       height="100%"
-                      src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
+                      src={`https://www.youtube-nocookie.com/embed/${embedId}`}
                       title={current ? `YouTube video player — ${current.title}` : "YouTube video player"}
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -79,6 +84,11 @@ export default function YouTubePage() {
                       className="w-full h-full"
                     />
                   </>
+                ) : shouldLoadIframe && !embedId ? (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-center text-white/90 gap-2 px-6">
+                    <p className="font-medium">No YouTube link yet for “{current?.title}”.</p>
+                    <p className="text-sm text-white/70">Add its YouTube ID in the <a href="/studio" className="underline">studio</a> to make it playable.</p>
+                  </div>
                 ) : (
                   <button
                     type="button"
@@ -113,7 +123,7 @@ export default function YouTubePage() {
               <div className="flex items-center gap-3 mb-4">
                 {groups.map((g) => (
                   <button key={g} onClick={() => setActiveGroup(g)} className={`px-3 py-1 rounded ${g === activeGroup ? 'bg-wood-accent text-wood-dark' : 'bg-card/30'}`}>
-                    {g.replace(/\b\w/g, (l) => l.toUpperCase())}
+                    {g}
                   </button>
                 ))}
               </div>
@@ -124,15 +134,14 @@ export default function YouTubePage() {
                     .filter(([group]) => group === activeGroup)
                     .map(([group, subs]) => (
                       <section key={group}>
-                        <h3 className="text-xl font-semibold mb-3">{group.replace(/\b\w/g, (l) => l.toUpperCase())}</h3>
+                        <h3 className="text-xl font-semibold mb-3 capitalize">{group}</h3>
                         {Object.entries(subs).map(([sub, items]) => {
                           const key = `${group}:${sub}`;
                           const isExpanded = !!expanded[key];
                           const visible = isExpanded ? items : items.slice(0, 4);
-                          const displayName = sub.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
                           return (
                             <div key={sub} className="mb-6">
-                              <h4 className="text-lg font-medium mb-3">{displayName}</h4>
+                              <h4 className="text-lg font-medium mb-3 capitalize">{sub.replace(/-/g, ' ')}</h4>
                               <div className="space-y-4">
                                 {visible.map((video) => (
                                   <Card
@@ -155,7 +164,7 @@ export default function YouTubePage() {
                                     <div className="flex-1 flex flex-col justify-between">
                                       <div className="flex items-start justify-between gap-4">
                                         <h3 className="font-semibold text-lg pr-4">{video.title}</h3>
-                                        <div className="text-sm text-muted-foreground whitespace-nowrap">{video.views} • {video.date}</div>
+                                        <div className="text-sm text-muted-foreground whitespace-nowrap">{[video.views, video.date].filter(Boolean).join(" • ")}</div>
                                       </div>
                                       <p className="text-muted-foreground mt-2 line-clamp-2">{video.description}</p>
                                       <div className="mt-3 flex items-center gap-3">
@@ -179,7 +188,7 @@ export default function YouTubePage() {
                                     onClick={() => setExpanded((s) => ({ ...s, [key]: !s[key] }))}
                                     className="px-3 py-2 rounded bg-card/30"
                                   >
-                                    {isExpanded ? 'Show Less' : `Show All ${items.length}`}
+                                    {isExpanded ? 'Show less' : `Show all ${items.length}`}
                                   </button>
                                 </div>
                               )}

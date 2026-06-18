@@ -1,0 +1,62 @@
+[
+  {
+    "id": "amalgam",
+    "title": "Amalgam",
+    "description": "An original layered piece — the first track I'm putting forward.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Electronic",
+    "coverArt": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  },
+  {
+    "id": "nocturne",
+    "title": "Nocturne (Coastal)",
+    "description": "Nocturnal, meditative ambient inspired by the coast.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Ambient",
+    "coverArt": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+  },
+  {
+    "id": "retrowave",
+    "title": "Neon Drive",
+    "description": "Retrowave synth layers with a high-energy beat.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Retrowave",
+    "coverArt": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+  },
+  {
+    "id": "city-symphony",
+    "title": "City Symphony",
+    "description": "City sounds blended with orchestral elements.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Orchestral",
+    "coverArt": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+  },
+  {
+    "id": "forest-acoustic",
+    "title": "Forest Awakening",
+    "description": "Natural sounds meeting acoustic guitar.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Acoustic",
+    "coverArt": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+  },
+  {
+    "id": "rocky-cover",
+    "title": "Rocky Theme (Cover)",
+    "description": "A cover/arrangement of the Rocky theme.",
+    "releaseDate": "2025-11-01",
+    "duration": "—",
+    "genre": "Cover",
+    "coverArt": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  }
+]

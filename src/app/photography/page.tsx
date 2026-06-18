@@ -18,12 +18,14 @@ export default function PhotographyPage() {
 
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <Camera className="w-10 h-10 text-wood-accent" />
-              <h1 className="text-4xl sm:text-5xl font-bold">Photography</h1>
+          <div className="mb-8 pt-8">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
+                <Camera className="w-6 h-6" />
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold"><span className="aero-text">Photography</span></h1>
             </div>
-            <p className="text-xl text-muted-foreground">A small gallery of sample photos. Add your own by editing <code>src/data/photography.ts</code>.</p>
+            <p className="text-lg text-muted-foreground">A small gallery — animals, landscapes, still life, and portraits. Add your own from the <a href="/studio" className="underline hover:text-primary">studio</a>.</p>
           </div>
 
           <div className="space-y-8">
@@ -35,7 +37,7 @@ export default function PhotographyPage() {
               }, {} as Record<string, typeof photographySamples>)
             ).map(([category, items]) => (
               <section key={category}>
-                <h3 className="text-xl font-semibold mb-4">{category.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}</h3>
+                <h3 className="text-xl font-semibold mb-4 capitalize">{category.replace('-', ' ')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {items.map((p) => (
                     <Card key={p.id} className="overflow-hidden bg-card/50 wood-texture border-2 border-wood-accent/30">

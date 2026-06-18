@@ -1,0 +1,167 @@
+[
+  {
+    "id": "mc1",
+    "youtubeId": "",
+    "title": "Designing a base in the HBM NTM modpack",
+    "thumbnail": "https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?w=800&h=450&fit=crop",
+    "description": "Building a survival base in the HBM Nuclear Tech modpack — power, defense, and a bit of chaos.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "minecraft"
+  },
+  {
+    "id": "doom1",
+    "youtubeId": "",
+    "title": "Doom Eternal — aggressive Ultra-Nightmare run",
+    "thumbnail": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=450&fit=crop",
+    "description": "Fast, aggressive playstyle with low-health saves and constant pressure.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "doom"
+  },
+  {
+    "id": "doom64",
+    "youtubeId": "",
+    "title": "DOOM 64 — full playthrough highlights",
+    "thumbnail": "https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=800&h=450&fit=crop",
+    "description": "Revisiting the classic with the best moments from a full run.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "doom"
+  },
+  {
+    "id": "yak1",
+    "youtubeId": "",
+    "title": "Yakuza 0 — Mr. Shakedown showdowns",
+    "thumbnail": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=450&fit=crop",
+    "description": "Substories, brawls, and the long road to beating Mr. Shakedown.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "yakuza"
+  },
+  {
+    "id": "forza1",
+    "youtubeId": "",
+    "title": "Forza Horizon 4 — seasonal scenic drives",
+    "thumbnail": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=450&fit=crop",
+    "description": "Cruising the UK map across the seasons with a favorite build.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "forza"
+  },
+  {
+    "id": "clone1",
+    "youtubeId": "",
+    "title": "Clone Drone in the Danger Zone — endless mode",
+    "thumbnail": "https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800&h=450&fit=crop",
+    "description": "Sword-fighting robots and dismemberment physics in endless survival.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "indie"
+  },
+  {
+    "id": "superliminal1",
+    "youtubeId": "",
+    "title": "Superliminal — perspective puzzle playthrough",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=450&fit=crop",
+    "description": "Mind-bending forced-perspective puzzles, solved (mostly) on camera.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "indie"
+  },
+  {
+    "id": "hunter1",
+    "youtubeId": "",
+    "title": "theHunter: Call of the Wild — a quiet hunt",
+    "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop",
+    "description": "Slow, atmospheric hunting across the reserve.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "simulation"
+  },
+  {
+    "id": "rbx1",
+    "youtubeId": "",
+    "title": "Roblox — funny moments compilation",
+    "thumbnail": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=450&fit=crop",
+    "description": "Silly moments and community highlights from various servers.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "roblox"
+  },
+  {
+    "id": "edit-oppenheimer",
+    "youtubeId": "",
+    "title": "Oppenheimer recreation (creative edit)",
+    "thumbnail": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=450&fit=crop",
+    "description": "A cinematic in-game recreation cut together in Premiere.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "edits"
+  },
+  {
+    "id": "edit-chickens",
+    "youtubeId": "",
+    "title": "Breeding chickens (creative edit)",
+    "thumbnail": "https://images.unsplash.com/photo-1612170153139-6f881ff067e0?w=800&h=450&fit=crop",
+    "description": "One of the comedic edits from the archive — exactly what it sounds like.",
+    "views": "",
+    "date": "New",
+    "group": "gaming",
+    "subcategory": "edits"
+  },
+  {
+    "id": "guitar-mop",
+    "youtubeId": "",
+    "title": "Master of Puppets — intro cover",
+    "thumbnail": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=450&fit=crop",
+    "description": "A rendition of the introduction to Metallica's Master of Puppets.",
+    "views": "",
+    "date": "New",
+    "group": "guitar",
+    "subcategory": "long-form"
+  },
+  {
+    "id": "guitar-classical",
+    "youtubeId": "",
+    "title": "Classical guitar arrangement",
+    "thumbnail": "https://images.unsplash.com/photo-1494949649102-ec42fa4a2d33?w=800&h=450&fit=crop",
+    "description": "A long-form classical arrangement with close-mic recording.",
+    "views": "",
+    "date": "New",
+    "group": "guitar",
+    "subcategory": "long-form"
+  },
+  {
+    "id": "guitar-fingerpick",
+    "youtubeId": "",
+    "title": "Quick fingerpicking pattern",
+    "thumbnail": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&h=450&fit=crop",
+    "description": "A short, useful fingerpicking pattern you can drop into songs.",
+    "views": "",
+    "date": "New",
+    "group": "guitar",
+    "subcategory": "short-form"
+  },
+  {
+    "id": "guitar-ambient",
+    "youtubeId": "",
+    "title": "Ambient guitar loop",
+    "thumbnail": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&h=450&fit=crop",
+    "description": "A short looping ambient guitar idea.",
+    "views": "",
+    "date": "New",
+    "group": "guitar",
+    "subcategory": "short-form"
+  }
+]

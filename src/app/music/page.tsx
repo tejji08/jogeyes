@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, Pause, Music2, Calendar, Clock, Guitar } from "lucide-react";
+import { Play, Pause, Music2, Calendar, Clock } from "lucide-react";
 import { useState } from "react";
 import { tracks } from "@/data/music";
 import ImageWithPlaceholder from "@/components/ImageWithPlaceholder";
@@ -35,13 +35,15 @@ export default function MusicPage() {
       
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <Guitar className="w-10 h-10 text-wood-accent" />
-              <h1 className="text-4xl sm:text-5xl font-bold">Original Guitar Music</h1>
+          <div className="mb-12 pt-8">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
+                <Music2 className="w-6 h-6" />
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold"><span className="aero-text">Music</span></h1>
             </div>
-            <p className="text-xl text-muted-foreground">
-              Listen to my latest guitar compositions and tracks, organized by genre
+            <p className="text-lg text-muted-foreground">
+              Original tracks made in Cubase — ambient, retrowave, orchestral, and acoustic — organized by genre.
             </p>
           </div>
 

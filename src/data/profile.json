@@ -1,0 +1,9 @@
+{
+  "name": "Hartej Singh",
+  "alias": "Jogeyes",
+  "tagline": "Gaming & guitar, original music, fiction, and photography — made and shared in one place.",
+  "bio": "I'm Hartej — a student and creator who likes building things across a lot of different mediums. I record gaming and guitar videos, produce original music in Cubase, write long-form fiction, and take photos when something catches my eye. This site is where all of it lives.",
+  "location": "Washington, USA",
+  "heroPrimary": { "label": "Watch videos", "href": "/youtube" },
+  "heroSecondary": { "label": "Read my writing", "href": "/writing" }
+}

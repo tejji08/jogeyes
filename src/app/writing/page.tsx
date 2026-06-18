@@ -43,8 +43,7 @@ export default function WritingPage() {
     return acc;
   }, {} as Record<PostTag, Post[]>);
 
-  // Removed experimental from tag order to hide that section
-  const tagOrder: PostTag[] = ["poetry", "story"];
+  const tagOrder: PostTag[] = ["story", "poetry", "experimental"];
   const tagLabels: Record<PostTag, string> = {
     poetry: "Poetry",
     story: "Stories",
@@ -57,10 +56,15 @@ export default function WritingPage() {
       
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Writing</h1>
-            <p className="text-xl text-muted-foreground">
-              Stories and poetry organized by type
+          <div className="mb-12 pt-8">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
+                <BookOpen className="w-6 h-6" />
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-bold"><span className="aero-text">Writing</span></h1>
+            </div>
+            <p className="text-lg text-muted-foreground">
+              The 4Corner Collection and more — fiction, sci-fi, and experimental pieces.
             </p>
           </div>
 

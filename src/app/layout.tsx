@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -7,9 +8,15 @@ import MotionWrapper from "@/components/MotionWrapper";
 import { PlayerProvider } from "@/context/player";
 import MiniPlayer from "@/components/MiniPlayer";
 
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Creative Portfolio | Music, Stories & Poetry",
-  description: "Personal creative portfolio showcasing YouTube content, original music, stories, and poetry",
+  title: "Jogeyes — Hartej's Creative Portfolio",
+  description: "The creative hub of Hartej Singh: gaming & guitar videos, original music, fiction & poetry, photography, and community.",
 };
 
 export default function RootLayout({
@@ -18,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={sora.variable}>
       <body className="antialiased">
         <a href="#site-content" className="skip-link sr-only focus:not-sr-only">Skip to content</a>
         <ErrorReporter />

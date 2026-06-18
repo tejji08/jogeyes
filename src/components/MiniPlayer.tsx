@@ -10,7 +10,7 @@ export default function MiniPlayer() {
   if (!player.current) return null;
 
   return (
-    <div className={`fixed right-4 bottom-4 z-50 ${player.isMinimized ? 'w-40 h-12' : 'w-80'} bg-card/90 rounded-lg shadow-lg p-2 flex items-center gap-3`}> 
+    <div className={`fixed right-4 bottom-4 z-50 ${player.isMinimized ? 'w-40 h-12' : 'w-80'} glass rounded-2xl shadow-lg p-2 flex items-center gap-3`}>
       <div className={`${player.isMinimized ? 'w-12 h-8' : 'w-20 h-12'} bg-black rounded overflow-hidden flex-shrink-0`}> 
         {!player.isMinimized && (
           <iframe

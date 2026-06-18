@@ -1,23 +1,3 @@
-/* Updated: 2025-10-29T21:36:28.301Z */
-/* Updated: 2025-10-29T21:27:07.038Z */
-/* Updated: 2025-10-29T21:24:38.243Z */
-/* Updated: 2025-10-29T21:22:28.488Z */
-/* Updated: 2025-10-29T21:10:15.480Z */
-/* Updated: 2025-10-29T21:07:16.748Z */
-/* Updated: 2025-10-29T18:15:49.224Z */
-/* Updated: 2025-10-29T18:15:27.327Z */
-/* Updated: 2025-10-29T04:22:47.535Z */
-/* Updated: 2025-10-28T15:39:23.771Z */
-/* Updated: 2025-10-28T05:13:41.132Z */
-/* Updated: 2025-10-27T04:38:39.935Z */
-/* Updated: 2025-10-27T03:10:03.708Z */
-/* Updated: 2025-10-27T03:08:25.543Z */
-/* Updated: 2025-10-27T03:08:05.669Z */
-/* Updated: 2025-10-24T20:50:40.000Z */
-/* Updated: 2025-10-24T20:49:58.212Z */
-/* Updated: 2025-10-24T19:23:42.149Z */
-/* Updated: 2025-10-22T21:59:18.681Z */
-/* Updated: 2025-10-22T21:40:09.609Z */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -26,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", monospace;
   --color-wood-dark: var(--wood-dark);
   --color-wood-medium: var(--wood-medium);
   --color-wood-light: var(--wood-light);
@@ -67,81 +47,60 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* ============================================================
+   Y2K GLASS / FRUTIGER AERO THEME
+   Light, glossy, optimistic — sky blue + aqua + lime, white glass.
+   ============================================================ */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.12 0.02 40);
-  --foreground: oklch(0.95 0.01 80);
-  --card: oklch(0.18 0.025 35);
-  --card-foreground: oklch(0.95 0.01 80);
-  --popover: oklch(0.18 0.025 35);
-  --popover-foreground: oklch(0.95 0.01 80);
-  --primary: oklch(0.55 0.12 165);
-  --primary-foreground: oklch(0.95 0.01 80);
-  --secondary: oklch(0.25 0.03 38);
-  --secondary-foreground: oklch(0.95 0.01 80);
-  --muted: oklch(0.22 0.025 38);
-  --muted-foreground: oklch(0.65 0.02 70);
-  --accent: oklch(0.28 0.04 42);
-  --accent-foreground: oklch(0.95 0.01 80);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.28 0.03 38);
-  --input: oklch(0.3 0.03 38);
-  --ring: oklch(0.55 0.12 165);
-  --wood-dark: oklch(0.15 0.025 35);
-  --wood-medium: oklch(0.22 0.03 38);
-  --wood-light: oklch(0.32 0.04 42);
-  --wood-accent: oklch(0.55 0.12 165);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.18 0.025 35);
-  --sidebar-foreground: oklch(0.95 0.01 80);
-  --sidebar-primary: oklch(0.55 0.12 165);
-  --sidebar-primary-foreground: oklch(0.95 0.01 80);
-  --sidebar-accent: oklch(0.25 0.03 38);
-  --sidebar-accent-foreground: oklch(0.95 0.01 80);
-  --sidebar-border: oklch(0.28 0.03 38);
-  --sidebar-ring: oklch(0.55 0.12 165);
-}
+  --radius: 1rem;
 
-.dark {
-  --background: oklch(0.12 0.02 40);
-  --foreground: oklch(0.95 0.01 80);
-  --card: oklch(0.18 0.025 35);
-  --card-foreground: oklch(0.95 0.01 80);
-  --popover: oklch(0.18 0.025 35);
-  --popover-foreground: oklch(0.95 0.01 80);
-  --primary: oklch(0.55 0.12 165);
-  --primary-foreground: oklch(0.95 0.01 80);
-  --secondary: oklch(0.25 0.03 38);
-  --secondary-foreground: oklch(0.95 0.01 80);
-  --muted: oklch(0.22 0.025 38);
-  --muted-foreground: oklch(0.65 0.02 70);
-  --accent: oklch(0.28 0.04 42);
-  --accent-foreground: oklch(0.95 0.01 80);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.28 0.03 38);
-  --input: oklch(0.3 0.03 38);
-  --ring: oklch(0.55 0.12 165);
-  --wood-dark: oklch(0.15 0.025 35);
-  --wood-medium: oklch(0.22 0.03 38);
-  --wood-light: oklch(0.32 0.04 42);
-  --wood-accent: oklch(0.55 0.12 165);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.18 0.025 35);
-  --sidebar-foreground: oklch(0.95 0.01 80);
-  --sidebar-primary: oklch(0.55 0.12 165);
-  --sidebar-primary-foreground: oklch(0.95 0.01 80);
-  --sidebar-accent: oklch(0.25 0.03 38);
-  --sidebar-accent-foreground: oklch(0.95 0.01 80);
-  --sidebar-border: oklch(0.28 0.03 38);
-  --sidebar-ring: oklch(0.55 0.12 165);
+  --background: oklch(0.97 0.022 230);
+  --foreground: oklch(0.28 0.06 255);
+
+  --card: oklch(0.99 0.008 230);
+  --card-foreground: oklch(0.28 0.06 255);
+  --popover: oklch(0.99 0.008 230);
+  --popover-foreground: oklch(0.28 0.06 255);
+
+  --primary: oklch(0.64 0.16 230);
+  --primary-foreground: oklch(0.99 0.01 230);
+
+  --secondary: oklch(0.93 0.04 215);
+  --secondary-foreground: oklch(0.30 0.06 255);
+
+  --muted: oklch(0.95 0.02 225);
+  --muted-foreground: oklch(0.50 0.04 255);
+
+  --accent: oklch(0.86 0.16 145);
+  --accent-foreground: oklch(0.30 0.09 150);
+
+  --destructive: oklch(0.62 0.22 25);
+
+  --border: oklch(0.88 0.03 225);
+  --input: oklch(0.90 0.03 225);
+  --ring: oklch(0.64 0.16 230);
+
+  /* "wood-*" tokens repurposed as Aero glass tones (kept by name so
+     existing pages adopt the new look without edits). */
+  --wood-dark: oklch(0.42 0.11 245);
+  --wood-medium: oklch(0.72 0.10 210);
+  --wood-light: oklch(0.90 0.06 205);
+  --wood-accent: oklch(0.68 0.15 205);
+
+  --chart-1: oklch(0.64 0.16 230);
+  --chart-2: oklch(0.70 0.15 195);
+  --chart-3: oklch(0.78 0.17 145);
+  --chart-4: oklch(0.80 0.16 95);
+  --chart-5: oklch(0.65 0.20 320);
+
+  --sidebar: oklch(0.99 0.008 230);
+  --sidebar-foreground: oklch(0.28 0.06 255);
+  --sidebar-primary: oklch(0.64 0.16 230);
+  --sidebar-primary-foreground: oklch(0.99 0.01 230);
+  --sidebar-accent: oklch(0.93 0.04 215);
+  --sidebar-accent-foreground: oklch(0.30 0.06 255);
+  --sidebar-border: oklch(0.88 0.03 225);
+  --sidebar-ring: oklch(0.64 0.16 230);
 }
 
 @layer base {
@@ -149,9 +108,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    font-family: var(--font-sans);
+    background-color: oklch(0.97 0.022 230);
+    background-image:
+      radial-gradient(1200px 600px at 15% -10%, oklch(0.86 0.10 205 / 0.55), transparent 60%),
+      radial-gradient(1000px 700px at 110% 10%, oklch(0.85 0.12 145 / 0.40), transparent 55%),
+      radial-gradient(900px 900px at 50% 120%, oklch(0.80 0.12 250 / 0.35), transparent 60%);
+    background-attachment: fixed;
   }
-  /* Accessible skip link */
+
   .skip-link {
     position: absolute;
     left: 1rem;
@@ -159,7 +125,7 @@
     background: linear-gradient(90deg, var(--wood-accent), var(--primary));
     color: white;
     padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     z-index: 60;
     transform: translateY(-120%);
     transition: transform 160ms ease;
@@ -168,39 +134,99 @@
     transform: translateY(0%);
   }
 
-  /* Focus-visible helper for keyboard users */
-  :focus {
+  :focus-visible {
     outline: 3px solid var(--ring);
     outline-offset: 2px;
   }
-  
-  /* Real wood grain texture */
+}
+
+/* ---- Aero utility classes ---- */
+@layer utilities {
+  /* Frosted glass panel — used everywhere cards/surfaces appear.
+     Repurposes the old .wood-texture hook so existing markup updates. */
+  .glass,
   .wood-texture {
-    background-image: 
-      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-      url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/7932a4a7-e2a2-4270-978b-36d351d2e5e1/generated_images/seamless-tileable-dark-wood-texture-patt-0c2cc9ef-20251024205040.jpg');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(255, 255, 255, 0.55) 45%,
+      rgba(214, 240, 255, 0.50) 100%
+    );
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 10px 30px -12px rgba(31, 89, 145, 0.35);
   }
-  
-  /* Custom scrollbar for horizontal navigation */
-  .nav-scroll::-webkit-scrollbar {
-    height: 4px;
+
+  /* Glossy candy button with a top sheen */
+  .glossy {
+    position: relative;
+    background-image: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--primary) 78%, white) 0%,
+      var(--primary) 48%,
+      color-mix(in oklch, var(--primary) 75%, black 18%) 100%
+    );
+    color: var(--primary-foreground);
+    border: 1px solid color-mix(in oklch, var(--primary) 60%, black 12%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.7),
+      0 8px 18px -8px color-mix(in oklch, var(--primary) 70%, transparent);
+    overflow: hidden;
   }
-  
-  .nav-scroll::-webkit-scrollbar-track {
-    background: var(--wood-medium);
+  .glossy::before {
+    content: "";
+    position: absolute;
+    inset: 1px 1px 50% 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0));
+    pointer-events: none;
   }
-  
+  .glossy-lime {
+    background-image: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--accent) 82%, white) 0%,
+      var(--accent) 48%,
+      color-mix(in oklch, var(--accent) 78%, black 16%) 100%
+    );
+    color: var(--accent-foreground);
+    border-color: color-mix(in oklch, var(--accent) 55%, black 14%);
+  }
+
+  /* Aqua gradient text for headings */
+  .aero-text {
+    background: linear-gradient(100deg,
+      oklch(0.55 0.17 250),
+      oklch(0.65 0.16 205),
+      oklch(0.70 0.17 150));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Soft floating blobs for hero backdrops */
+  .aero-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(40px);
+    opacity: 0.55;
+    pointer-events: none;
+    animation: aero-float 14s ease-in-out infinite;
+  }
+  @keyframes aero-float {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+    50% { transform: translateY(-22px) translateX(12px) scale(1.06); }
+  }
+
+  .nav-scroll::-webkit-scrollbar { height: 6px; }
+  .nav-scroll::-webkit-scrollbar-track { background: transparent; }
   .nav-scroll::-webkit-scrollbar-thumb {
     background: var(--wood-accent);
-    border-radius: 2px;
+    border-radius: 3px;
   }
-  
-  .nav-scroll::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
-  }
+  .nav-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 }
 
 /* Hide Next.js error overlay portal */
