@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Youtube, BookOpen, Users, ArrowRight, Camera } from "lucide-react";
+import { Youtube, BookOpen, Users, ArrowRight, Camera, Sparkles, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -12,7 +12,7 @@ export default function Home() {
   const sections = [
     {
       title: "YouTube",
-      description: "Gaming runs and guitar covers — Doom, Yakuza, Forza, Minecraft, and Master of Puppets.",
+      description: "Guitar covers and gaming runs from the @Jogeyes channel.",
       icon: Youtube,
       href: "/youtube",
       color: "from-red-400 to-rose-500",
@@ -49,6 +49,33 @@ export default function Home() {
         <div className="aero-blob w-72 h-72 bg-sky-300 top-20 -left-10" />
         <div className="aero-blob w-80 h-80 bg-emerald-300 top-10 right-0" style={{ animationDelay: "3s" }} />
         <div className="aero-blob w-64 h-64 bg-violet-300 bottom-0 left-1/3" style={{ animationDelay: "6s" }} />
+
+        {/* Decorative graphics (Aero only) */}
+        <div className="hero-decor pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            className="absolute -top-12 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(255,248,205,.95), rgba(255,226,150,.35) 45%, transparent 70%)", filter: "blur(6px)" }}
+          />
+          <Sparkles className="absolute top-24 left-[16%] w-6 h-6 text-sky-400/70 animate-pulse" />
+          <Sparkles className="absolute top-44 right-[18%] w-5 h-5 text-emerald-400/70 animate-pulse" style={{ animationDelay: "1s" }} />
+          <Star className="absolute top-16 right-[30%] w-4 h-4 text-violet-400/70 animate-pulse" style={{ animationDelay: ".5s" }} />
+          <Star className="absolute top-56 left-[28%] w-3.5 h-3.5 text-sky-400/60 animate-pulse" style={{ animationDelay: "1.4s" }} />
+          <svg className="absolute top-28 left-[6%] w-28 opacity-80" viewBox="0 0 120 50" fill="white" aria-hidden="true">
+            <ellipse cx="40" cy="32" rx="34" ry="16" />
+            <ellipse cx="68" cy="24" rx="26" ry="18" />
+            <ellipse cx="88" cy="34" rx="24" ry="13" />
+          </svg>
+          <svg className="absolute top-20 right-[8%] w-24 opacity-70" viewBox="0 0 120 50" fill="white" aria-hidden="true">
+            <ellipse cx="40" cy="32" rx="32" ry="15" />
+            <ellipse cx="70" cy="26" rx="24" ry="16" />
+            <ellipse cx="90" cy="34" rx="20" ry="12" />
+          </svg>
+        </div>
+
+        {/* Wave divider (Aero only) */}
+        <svg className="hero-wave absolute bottom-0 left-0 w-full h-12 sm:h-16" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 40 C 240 90, 480 0, 720 35 S 1200 90, 1440 30 L 1440 80 L 0 80 Z" fill="rgba(255,255,255,0.45)" />
+        </svg>
 
         <div className="container mx-auto text-center relative z-10">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm font-medium text-primary mb-7">
@@ -107,7 +134,7 @@ export default function Home() {
                   href={section.href}
                   className={isCommunity ? "md:col-span-2" : ""}
                 >
-                  <Card className="group relative overflow-hidden p-8 h-full glass border-0 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <Card className="group relative overflow-hidden p-8 h-full glass glass-hover border-0 rounded-2xl">
                     <div className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
                     <div className="relative z-10">
                       <div className={`inline-flex p-3.5 rounded-2xl bg-gradient-to-br ${section.color} mb-4 shadow-sm`}>

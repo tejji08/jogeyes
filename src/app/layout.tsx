@@ -8,6 +8,7 @@ import MotionWrapper from "@/components/MotionWrapper";
 import { PlayerProvider } from "@/context/player";
 import MiniPlayer from "@/components/MiniPlayer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Ambience from "@/components/Ambience";
 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
@@ -39,6 +40,7 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         <ThemeProvider>
+          <Ambience />
           <div id="site-content">
             <PlayerProvider>
               <MotionWrapper>{children}</MotionWrapper>
