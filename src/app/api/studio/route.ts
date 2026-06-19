@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
+import { isAuthed } from "@/lib/studio-auth";
 
 export const runtime = "nodejs";
 
@@ -14,6 +15,7 @@ function fileFor(type: string): string | null {
 }
 
 export async function GET(req: NextRequest) {
+  if (!isAuthed(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const type = req.nextUrl.searchParams.get("type") || "";
   const file = fileFor(type);
   if (!file) {
@@ -28,6 +30,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  if (!isAuthed(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   // Local-editing tool: writing to source files only makes sense in dev.
   if (process.env.NODE_ENV === "production") {
     return NextResponse.json(

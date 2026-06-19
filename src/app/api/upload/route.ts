@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
+import { isAuthed } from "@/lib/studio-auth";
 
 export const runtime = "nodejs";
 
@@ -19,6 +20,7 @@ function slugify(name: string): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!isAuthed(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   if (process.env.NODE_ENV === "production") {
     return NextResponse.json(
       { error: "Uploads are disabled in production. Run the site locally to add pictures." },

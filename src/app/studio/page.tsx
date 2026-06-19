@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Plus, Trash2, Upload, Save, ArrowLeft, ImageIcon, Loader2 } from "lucide-react";
+import { Plus, Trash2, Upload, Save, ArrowLeft, ImageIcon, Loader2, Lock, LogOut } from "lucide-react";
 
 type Item = Record<string, unknown>;
 
@@ -118,8 +118,19 @@ export default function StudioPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+  const [authed, setAuthed] = useState<boolean | null>(null);
+  const [pw, setPw] = useState("");
+  const [authError, setAuthError] = useState("");
 
   useEffect(() => {
+    fetch("/api/studio/login")
+      .then((r) => r.json())
+      .then((d) => setAuthed(!!d.authed))
+      .catch(() => setAuthed(false));
+  }, []);
+
+  useEffect(() => {
+    if (authed !== true) return;
     (async () => {
       const next: Record<string, unknown> = {};
       for (const t of TYPES) {
@@ -134,7 +145,7 @@ export default function StudioPage() {
       setStore(next);
       setLoading(false);
     })();
-  }, []);
+  }, [authed]);
 
   const schema = SCHEMAS[active];
   const flash = (kind: "ok" | "err", text: string) => {
@@ -190,10 +201,79 @@ export default function StudioPage() {
     }
   }
 
+  async function login(e: React.FormEvent) {
+    e.preventDefault();
+    setAuthError("");
+    try {
+      const res = await fetch("/api/studio/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pw }),
+      });
+      const json = await res.json();
+      if (json.ok) {
+        setAuthed(true);
+        setPw("");
+      } else {
+        setAuthError(json.error || "Incorrect password.");
+      }
+    } catch {
+      setAuthError("Could not reach the server.");
+    }
+  }
+
+  async function logout() {
+    try {
+      await fetch("/api/studio/login", { method: "DELETE" });
+    } catch {
+      /* ignore */
+    }
+    setAuthed(false);
+  }
+
+  if (authed === null) {
+    return (
+      <div className="min-h-screen grid place-items-center">
+        <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  if (!authed) {
+    return (
+      <div className="min-h-screen grid place-items-center px-4">
+        <div className="glass rounded-2xl p-8 w-full max-w-sm text-center">
+          <span className="inline-grid place-items-center w-14 h-14 rounded-2xl glossy mb-4">
+            <Lock className="w-6 h-6" />
+          </span>
+          <h1 className="text-2xl font-bold mb-1">Studio</h1>
+          <p className="text-sm text-muted-foreground mb-6">Enter your password to edit the site.</p>
+          <form onSubmit={login} className="space-y-3">
+            <input
+              type="password"
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+              placeholder="Password"
+              autoFocus
+              className="w-full rounded-xl bg-white/70 border border-white/80 px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            {authError && <p className="text-sm text-red-600">{authError}</p>}
+            <button type="submit" className="w-full glossy rounded-xl py-2.5 font-medium">
+              Unlock
+            </button>
+          </form>
+          <Link href="/" className="inline-block mt-5 text-sm text-muted-foreground hover:text-primary">
+            ← Back to site
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen pt-28 pb-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-start justify-between mb-6 gap-4">
           <div>
             <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary mb-2">
               <ArrowLeft className="w-4 h-4" /> Back to site
@@ -203,6 +283,9 @@ export default function StudioPage() {
             </h1>
             <p className="text-muted-foreground mt-1">Edit your site content and add pictures — no code needed.</p>
           </div>
+          <button onClick={logout} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary shrink-0 mt-1">
+            <LogOut className="w-4 h-4" /> Lock
+          </button>
         </div>
 
         {/* Type tabs */}
