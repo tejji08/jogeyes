@@ -1,7 +1,8 @@
 // Decorative ambient background, rendered once in the root layout.
-// Aero: floating bubbles + soft light glows. Atompunk: spinning atom,
-// sunbursts, and CRT scanlines. Pure static markup (deterministic) so it
-// works in SSR with no hydration mismatch. Toggled by [data-theme] in CSS.
+// Aero: bubbles, light glows, a glass orb, drifting cloud, and a hills +
+// skyline backdrop. Atompunk: spinning atom, sunbursts, CRT scanlines, and a
+// retrofuturist city + rocket + saucer backdrop. Pure static markup
+// (deterministic) so it works in SSR with no hydration mismatch.
 
 const BUBBLES = [
   { left: "6%", size: 26, dur: 22, delay: 0 },
@@ -38,10 +39,19 @@ function Sunburst({ className }: { className: string }) {
 export default function Ambience() {
   return (
     <div className="ambience" aria-hidden="true">
+      {/* ---------- AERO ---------- */}
       <div className="ambience-aero">
         <span className="ambience-glow" />
         <span className="ambience-glow two" />
         <span className="ambience-glow three" />
+        <span className="ambience-orb" />
+
+        <svg className="scene-cloud" viewBox="0 0 120 60" aria-hidden="true">
+          <ellipse cx="40" cy="38" rx="34" ry="16" />
+          <ellipse cx="66" cy="28" rx="26" ry="18" />
+          <ellipse cx="86" cy="38" rx="22" ry="13" />
+        </svg>
+
         {BUBBLES.map((b, i) => (
           <span
             key={i}
@@ -55,8 +65,22 @@ export default function Ambience() {
             }}
           />
         ))}
+
+        <svg className="scene scene-aero" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">
+          <g className="scene-far">
+            <rect x="980" y="150" width="22" height="60" />
+            <rect x="1008" y="120" width="18" height="90" />
+            <rect x="1030" y="140" width="26" height="70" />
+            <rect x="1062" y="100" width="16" height="110" />
+            <rect x="1082" y="135" width="24" height="75" />
+            <rect x="1110" y="155" width="20" height="55" />
+          </g>
+          <path className="scene-mid" d="M0,150 C260,112 520,150 760,126 C1000,102 1240,150 1440,122 L1440,260 L0,260 Z" />
+          <path className="scene-near" d="M0,206 C320,172 640,214 960,182 C1180,160 1320,196 1440,184 L1440,260 L0,260 Z" />
+        </svg>
       </div>
 
+      {/* ---------- ATOMPUNK ---------- */}
       <div className="ambience-atom">
         <Sunburst className="ambience-burst one" />
         <Sunburst className="ambience-burst two" />
@@ -68,6 +92,38 @@ export default function Ambience() {
           </g>
           <circle cx="50" cy="50" r="6" fill="currentColor" stroke="none" />
         </svg>
+
+        <svg className="scene scene-atom" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">
+          <g className="scene-far">
+            <rect x="120" y="140" width="40" height="70" />
+            <rect x="300" y="120" width="30" height="90" />
+            <path d="M170,210 a44,44 0 0 1 88,0 Z" />
+            <path d="M520,210 a30,30 0 0 1 60,0 Z" />
+            <rect x="400" y="90" width="12" height="120" />
+            <circle cx="406" cy="86" r="8" />
+            <rect x="620" y="70" width="10" height="140" />
+            <circle cx="625" cy="66" r="7" />
+            <rect x="980" y="110" width="34" height="100" />
+            <rect x="1040" y="130" width="24" height="80" />
+            <path d="M1100,210 a36,36 0 0 1 72,0 Z" />
+            <rect x="1230" y="100" width="12" height="110" />
+            <circle cx="1236" cy="96" r="7" />
+          </g>
+          <rect className="scene-near" x="0" y="206" width="1440" height="60" />
+          <g className="scene-accent">
+            <g className="scene-rocket" transform="translate(760,66)">
+              <path d="M14,0 C24,14 24,42 14,56 C4,42 4,14 14,0 Z" />
+              <path d="M4,42 L-7,60 L9,52 Z" />
+              <path d="M24,42 L35,60 L19,52 Z" />
+              <circle cx="14" cy="22" r="5" fill="#bfeaff" />
+            </g>
+            <g className="scene-saucer" transform="translate(250,86)">
+              <ellipse cx="0" cy="8" rx="36" ry="10" />
+              <ellipse cx="0" cy="2" rx="16" ry="11" />
+            </g>
+          </g>
+        </svg>
+
         <div className="ambience-scan" />
       </div>
     </div>

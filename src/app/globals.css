@@ -358,10 +358,54 @@
 
   /* Aero-only hero graphics */
   [data-theme^="atom"] .hero-decor, [data-theme^="atom"] .hero-wave { display: none; }
+
+  /* ===== Scenic backdrops (anchored to viewport bottom) ===== */
+  .scene { position: absolute; bottom: 0; left: 0; width: 100%; height: 36vh; min-height: 220px; }
+  .ambience-aero .scene { opacity: .55; }
+  .ambience-atom .scene { opacity: .62; }
+  .scene-far { fill: #ffffff; opacity: .5; }
+  .scene-mid { fill: #82dc8e; }
+  .scene-near { fill: #4fae63; }
+  .scene-accent { fill: #bdeaff; }
+  [data-theme="aero-dark"] .scene-far { fill: #8ab4e6; opacity: .3; }
+  [data-theme="aero-dark"] .scene-mid { fill: #163f30; }
+  [data-theme="aero-dark"] .scene-near { fill: #0c2a22; }
+  [data-theme="aero-dark"] .scene-accent { fill: #2f5d82; }
+  [data-theme="atom-light"] .scene-far { fill: #128a82; opacity: .85; }
+  [data-theme="atom-light"] .scene-mid { fill: #d99a1c; }
+  [data-theme="atom-light"] .scene-near { fill: #2b2016; }
+  [data-theme="atom-light"] .scene-accent { fill: #e2552a; }
+  [data-theme="atom-dark"] .scene-far { fill: #243017; opacity: .92; }
+  [data-theme="atom-dark"] .scene-mid { fill: #4d5e2a; }
+  [data-theme="atom-dark"] .scene-near { fill: #0f140b; }
+  [data-theme="atom-dark"] .scene-accent { fill: #ffb000; }
+  [data-theme="atom-dark"] .scene-atom { filter: drop-shadow(0 0 6px rgba(255,176,0,.3)); }
+
+  /* Frutiger glass orb */
+  .ambience-orb {
+    position: absolute; top: 16%; right: 9%; width: 120px; height: 120px; border-radius: 9999px;
+    background: radial-gradient(circle at 34% 28%, rgba(255,255,255,.95), rgba(150,220,255,.5) 42%, rgba(90,180,255,.15) 70%, rgba(60,150,230,.04));
+    box-shadow: inset 0 0 30px rgba(255,255,255,.5), 0 0 30px rgba(150,220,255,.4);
+    animation: aero-float 18s ease-in-out infinite;
+  }
+  [data-theme="aero-dark"] .ambience-orb { box-shadow: inset 0 0 30px rgba(180,230,255,.3), 0 0 42px rgba(80,180,255,.3); }
+
+  .scene-cloud {
+    position: absolute; top: 12%; left: 0; width: 130px; opacity: .85; fill: #ffffff;
+    animation: cloud-drift 70s linear infinite;
+  }
+  [data-theme="aero-dark"] .scene-cloud { fill: #9fc2e6; opacity: .35; }
+  @keyframes cloud-drift { from { transform: translateX(-12%); } to { transform: translateX(112vw); } }
+
+  .scene-rocket { transform-box: fill-box; transform-origin: center; animation: rocket-bob 7s ease-in-out infinite; }
+  @keyframes rocket-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .scene-saucer { transform-box: fill-box; animation: saucer-drift 22s ease-in-out infinite; }
+  @keyframes saucer-drift { 0% { transform: translateX(0) translateY(0); } 50% { transform: translateX(46px) translateY(-12px); } 100% { transform: translateX(0) translateY(0); } }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ambience-bubble, .ambience-scan, .aero-text, .glossy::after, .aero-blob, .ambience-glow, .ambience-atom-symbol {
+  .ambience-bubble, .ambience-scan, .aero-text, .glossy::after, .aero-blob, .ambience-glow,
+  .ambience-atom-symbol, .scene-cloud, .scene-rocket, .scene-saucer, .ambience-orb {
     animation: none !important;
   }
 }
