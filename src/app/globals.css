@@ -330,6 +330,15 @@
   .nav-scroll::-webkit-scrollbar-track { background: transparent; }
   .nav-scroll::-webkit-scrollbar-thumb { background: var(--wood-accent); border-radius: 3px; }
 
+  /* ===== Photo collage (horizontal scroll) ===== */
+  .collage-scroll { scroll-snap-type: x proximity; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+  .collage-scroll > * { scroll-snap-align: start; }
+  .collage-scroll::-webkit-scrollbar { height: 8px; }
+  .collage-scroll::-webkit-scrollbar-track { background: transparent; }
+  .collage-scroll::-webkit-scrollbar-thumb { background: var(--wood-accent); border-radius: 999px; }
+  .collage-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+  .collage-arrow { backdrop-filter: blur(8px); }
+
   /* ===== Ambient layer ===== */
   .ambience { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
   .ambience-aero { position: absolute; inset: 0; }

@@ -1,7 +1,24 @@
 [
-  { "id": "p1", "src": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1000&h=700&fit=crop", "category": "animals" },
-  { "id": "p2", "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&h=700&fit=crop", "category": "landscapes" },
-  { "id": "p3", "src": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000&h=700&fit=crop", "category": "landscapes" },
-  { "id": "p4", "src": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=1000&h=700&fit=crop", "category": "portraits" },
-  { "id": "p5", "src": "https://images.unsplash.com/photo-1495231916356-a86217efff12?w=1000&h=700&fit=crop", "category": "still-life" }
+  { "id": "p1", "src": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1000&h=700&fit=crop", "category": "animals", "caption": "Red fox, golden hour" },
+  { "id": "p6", "src": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=1000&h=700&fit=crop", "category": "animals", "caption": "Curious fox in the field" },
+  { "id": "p7", "src": "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=900&h=1100&fit=crop", "category": "animals", "caption": "Deer at dawn" },
+  { "id": "p8", "src": "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=1000&h=700&fit=crop", "category": "animals", "caption": "Cat in the window light" },
+  { "id": "p9", "src": "https://images.unsplash.com/photo-1444212477490-ca407925329e?w=1100&h=800&fit=crop", "category": "animals", "caption": "Sleepy pup" },
+
+  { "id": "p2", "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Mountain lake, blue hour" },
+  { "id": "p3", "src": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Still water, distant peaks" },
+  { "id": "p10", "src": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&h=800&fit=crop", "category": "landscapes", "caption": "Forest road into fog" },
+  { "id": "p11", "src": "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=900&h=1100&fit=crop", "category": "landscapes", "caption": "Valley overlook" },
+  { "id": "p12", "src": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Pines under cloud" },
+  { "id": "p13", "src": "https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=1100&h=800&fit=crop", "category": "landscapes", "caption": "Rolling green hills" },
+
+  { "id": "p4", "src": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Window-light portrait" },
+  { "id": "p14", "src": "https://images.unsplash.com/photo-1463453091185-61582044d556?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Studio headshot" },
+  { "id": "p15", "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1000&h=700&fit=crop", "category": "portraits", "caption": "Natural smile, outdoors" },
+  { "id": "p16", "src": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Profile, soft shadow" },
+
+  { "id": "p5", "src": "https://images.unsplash.com/photo-1495231916356-a86217efff12?w=1000&h=700&fit=crop", "category": "still-life", "caption": "Coffee and morning light" },
+  { "id": "p17", "src": "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=900&h=1100&fit=crop", "category": "still-life", "caption": "Plant on the sill" },
+  { "id": "p18", "src": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=1000&h=700&fit=crop", "category": "still-life", "caption": "Books and warm tones" },
+  { "id": "p19", "src": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1100&h=800&fit=crop", "category": "still-life", "caption": "Minimal desk setup" }
 ]

@@ -102,10 +102,11 @@ const SCHEMAS: Record<string, Schema> = {
     label: "Photography",
     kind: "list",
     singular: "photo",
-    newItem: () => ({ id: rid(), src: "", category: "landscapes" }),
+    newItem: () => ({ id: rid(), src: "", category: "landscapes", caption: "" }),
     fields: [
       { key: "src", label: "Image", type: "image" },
-      { key: "category", label: "Category", type: "select", options: ["animals", "landscapes", "still-life", "portraits"] },
+      { key: "category", label: "Category (= collage/album it scrolls in)", type: "select", options: ["animals", "landscapes", "still-life", "portraits"] },
+      { key: "caption", label: "Caption (optional)", type: "text", hint: "Shown on hover" },
     ],
   },
 };

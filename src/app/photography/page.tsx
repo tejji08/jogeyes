@@ -2,13 +2,12 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Card } from "@/components/ui/card";
 import { Camera } from "lucide-react";
 import { photographySamples } from "@/data/photography";
 import HeaderArt from "@/components/HeaderArt";
+import PhotoCollage from "@/components/PhotoCollage";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import ImageWithPlaceholder from '../../components/ImageWithPlaceholder';
 const Lightbox = dynamic(() => import("@/components/Lightbox"), { ssr: false });
 
 export default function PhotographyPage() {
@@ -30,36 +29,30 @@ export default function PhotographyPage() {
             <HeaderArt name="photography" />
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-10">
             {Object.entries(
               photographySamples.reduce((acc: Record<string, typeof photographySamples>, p) => {
                 acc[p.category] = acc[p.category] || [];
                 acc[p.category].push(p);
                 return acc;
               }, {} as Record<string, typeof photographySamples>)
-            ).map(([category, items]) => (
+            ).map(([category, items], albumIndex) => (
               <section key={category}>
-                <h3 className="text-xl font-semibold mb-4 capitalize">{category.replace('-', ' ')}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {items.map((p) => (
-                    <Card key={p.id} className="overflow-hidden bg-card/50 wood-texture border-2 border-wood-accent/30">
-                      <button onClick={() => setOpen({ open: true, index: photographySamples.findIndex(x => x.id === p.id) })} className="w-full h-full text-left">
-                        <div className="aspect-video">
-                          {/* Use ImageWithPlaceholder for better UX */}
-                          <div className="w-full h-full relative">
-                            <ImageWithPlaceholder src={p.src} alt={`photo-${p.id}`} />
-                          </div>
-                        </div>
-                      </button>
-                    </Card>
-                  ))}
+                <div className="flex items-baseline justify-between mb-4 gap-3">
+                  <h3 className="text-xl font-semibold capitalize">{category.replace('-', ' ')}</h3>
+                  <span className="text-sm text-muted-foreground">{items.length} {items.length === 1 ? "photo" : "photos"} · scroll →</span>
                 </div>
+                <PhotoCollage
+                  photos={items.map((p) => ({ id: p.id, src: p.src, caption: p.caption }))}
+                  layoutIndex={albumIndex}
+                  onOpen={(id) => setOpen({ open: true, index: photographySamples.findIndex((x) => x.id === id) })}
+                />
               </section>
             ))}
           </div>
           {open?.open && (
             <Lightbox
-              items={photographySamples.map((p) => ({ src: p.src, alt: p.id }))}
+              items={photographySamples.map((p) => ({ src: p.src, alt: p.caption || p.id, caption: p.caption }))}
               index={open.index}
               onClose={() => setOpen({ open: false, index: 0 })}
             />
