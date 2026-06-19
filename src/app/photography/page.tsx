@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Camera } from "lucide-react";
 import { photographySamples } from "@/data/photography";
+import HeaderArt from "@/components/HeaderArt";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import ImageWithPlaceholder from '../../components/ImageWithPlaceholder';
@@ -18,7 +19,7 @@ export default function PhotographyPage() {
 
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-8 pt-8">
+          <div className="mb-8 pt-8 relative">
             <div className="flex items-center gap-3 mb-3">
               <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
                 <Camera className="w-6 h-6" />
@@ -26,6 +27,7 @@ export default function PhotographyPage() {
               <h1 className="text-4xl sm:text-5xl font-bold"><span className="aero-text">Photography</span></h1>
             </div>
             <p className="text-lg text-muted-foreground">A small gallery — animals, landscapes, still life, and portraits. Add your own from the <a href="/studio" className="underline hover:text-primary">studio</a>.</p>
+            <HeaderArt name="photography" />
           </div>
 
           <div className="space-y-8">

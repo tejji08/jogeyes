@@ -75,10 +75,15 @@ export default function YouTubePage() {
 
           {!hasVideos ? (
             /* Empty state — ready for videos to be added */
-            <Card className="glass border-0 rounded-2xl p-10 sm:p-16 text-center">
-              <span className="inline-grid place-items-center w-16 h-16 rounded-2xl glossy mb-5">
-                <Youtube className="w-8 h-8" />
-              </span>
+            <Card className="glass border-0 rounded-2xl p-10 sm:p-16 text-center pat pat-burst overflow-hidden">
+              <svg viewBox="0 0 160 120" className="w-40 h-auto mx-auto mb-5 text-primary" fill="none" stroke="currentColor" strokeWidth="4" aria-hidden="true">
+                <rect x="20" y="34" width="120" height="76" rx="10" />
+                <path d="M60 34 L46 14" />
+                <path d="M100 34 L114 14" />
+                <circle cx="46" cy="12" r="4" fill="currentColor" stroke="none" />
+                <circle cx="114" cy="12" r="4" fill="currentColor" stroke="none" />
+                <path d="M70 56 L96 72 L70 88 Z" fill="currentColor" stroke="none" />
+              </svg>
               <h2 className="text-2xl font-bold mb-2">Videos coming soon</h2>
               <p className="text-muted-foreground max-w-md mx-auto mb-7">
                 Guitar covers and gaming runs will live here. In the meantime, head to the channel

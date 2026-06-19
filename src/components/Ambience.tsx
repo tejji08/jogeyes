@@ -52,6 +52,18 @@ export default function Ambience() {
           <ellipse cx="86" cy="38" rx="22" ry="13" />
         </svg>
 
+        <svg className="scene-blimp" viewBox="0 0 120 50" aria-hidden="true">
+          <ellipse cx="58" cy="22" rx="48" ry="15" />
+          <path d="M104,22 l16,-8 v16 z" />
+          <rect x="46" y="35" width="24" height="8" rx="3" />
+        </svg>
+
+        <svg className="scene-birds" viewBox="0 0 120 30" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M8,16 q7,-9 14,0 q7,-9 14,0" />
+          <path d="M54,10 q6,-8 12,0 q6,-8 12,0" />
+          <path d="M92,18 q5,-7 10,0 q5,-7 10,0" />
+        </svg>
+
         {BUBBLES.map((b, i) => (
           <span
             key={i}
@@ -91,6 +103,16 @@ export default function Ambience() {
             <ellipse cx="50" cy="50" rx="46" ry="18" transform="rotate(120 50 50)" />
           </g>
           <circle cx="50" cy="50" r="6" fill="currentColor" stroke="none" />
+        </svg>
+
+        <svg className="scene-satellite" viewBox="0 0 120 50" aria-hidden="true">
+          <rect x="52" y="16" width="16" height="18" rx="2" />
+          <rect x="20" y="21" width="28" height="8" />
+          <rect x="72" y="21" width="28" height="8" />
+          <rect x="48" y="24" width="6" height="2" />
+          <rect x="66" y="24" width="6" height="2" />
+          <circle cx="60" cy="10" r="5" />
+          <rect x="59" y="12" width="2" height="6" />
         </svg>
 
         <svg className="scene scene-atom" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">

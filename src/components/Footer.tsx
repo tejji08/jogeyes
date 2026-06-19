@@ -13,7 +13,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-24 px-3 sm:px-4 pb-6">
-      <div className="container mx-auto glass rounded-2xl px-6 sm:px-10 py-8">
+      <div className="container mx-auto glass rounded-2xl px-6 sm:px-10 py-8 pat pat-hazard overflow-hidden">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-1.5">

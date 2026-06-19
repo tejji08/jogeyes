@@ -410,4 +410,58 @@
   }
 }
 
+/* ============================================================
+   GLOBAL POLISH — selection, scrollbar, themed cursor
+   ============================================================ */
+::selection { background: var(--accent); color: var(--accent-foreground); }
+html { scrollbar-color: var(--wood-accent) transparent; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--wood-accent); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); background-clip: content-box; }
+
+a, button, [role="button"], label[for], select, summary { cursor: pointer; }
+
+body { cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%3E%3Ccircle%20cx='12'%20cy='12'%20r='7'%20fill='none'%20stroke='%231f93ff'%20stroke-width='2'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='2.5'%20fill='%231f93ff'/%3E%3C/svg%3E") 12 12, auto; }
+[data-theme="aero-dark"] body { cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%3E%3Ccircle%20cx='12'%20cy='12'%20r='7'%20fill='none'%20stroke='%2338c6ff'%20stroke-width='2'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='2.5'%20fill='%2338c6ff'/%3E%3C/svg%3E") 12 12, auto; }
+[data-theme="atom-light"] body { cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%3E%3Ccircle%20cx='12'%20cy='12'%20r='7'%20fill='none'%20stroke='%23128a82'%20stroke-width='2'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='2.5'%20fill='%23128a82'/%3E%3C/svg%3E") 12 12, auto; }
+[data-theme="atom-dark"] body { cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%3E%3Ccircle%20cx='12'%20cy='12'%20r='7'%20fill='none'%20stroke='%23ffb000'%20stroke-width='2'/%3E%3Ccircle%20cx='12'%20cy='12'%20r='2.5'%20fill='%23ffb000'/%3E%3C/svg%3E") 12 12, auto; }
+
+@layer utilities {
+  /* ===== Decorative patterns (faint overlays on surfaces) ===== */
+  .pat { position: relative; }
+  .pat > * { position: relative; z-index: 1; }
+  .pat::before { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; z-index: 0; }
+  .pat-dots::before { background-image: radial-gradient(currentColor 1.2px, transparent 1.6px); background-size: 18px 18px; opacity: .1; }
+  .pat-hazard::before { background-image: repeating-linear-gradient(45deg, currentColor 0 10px, transparent 10px 20px); opacity: .07; }
+  .pat-burst::before { background-image: repeating-conic-gradient(from 0deg at 80% 20%, currentColor 0deg 3deg, transparent 3deg 15deg); opacity: .06; }
+  .pat-grid::before { background-image: linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px); background-size: 22px 22px; opacity: .06; }
+
+  /* ===== Section dividers ===== */
+  .divider { display: block; width: 100%; height: 46px; }
+  .divider-flip { transform: rotate(180deg); }
+  .divider-fill { fill: var(--secondary); }
+
+  /* ===== Section header art ===== */
+  .header-art { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); width: 130px; opacity: .5; color: var(--wood-accent); pointer-events: none; }
+  [data-theme="atom-dark"] .header-art { filter: drop-shadow(0 0 6px rgba(255,176,0,.35)); }
+
+  /* ===== Extra flying set-pieces ===== */
+  .scene-blimp { position: absolute; top: 19%; left: 0; width: 120px; fill: var(--wood-accent); opacity: .32; animation: blimp-drift 95s linear infinite; }
+  @keyframes blimp-drift { from { transform: translateX(-16%); } to { transform: translateX(116vw); } }
+  .scene-birds { position: absolute; top: 27%; left: 0; width: 120px; color: var(--foreground); opacity: .28; animation: birds-drift 52s linear infinite; }
+  @keyframes birds-drift { from { transform: translateX(-12%) translateY(6px); } to { transform: translateX(114vw) translateY(-22px); } }
+  .scene-satellite { position: absolute; top: 17%; left: 0; width: 110px; fill: var(--wood-accent); opacity: .5; animation: sat-drift 84s linear infinite; }
+  [data-theme="atom-dark"] .scene-satellite { filter: drop-shadow(0 0 6px rgba(255,176,0,.4)); }
+  @keyframes sat-drift { from { transform: translateX(-12%) rotate(-6deg); } to { transform: translateX(116vw) rotate(6deg); } }
+
+  /* ===== Parallax on the bottom scenery ===== */
+  .scene { transform: translateY(var(--parallax, 0px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-blimp, .scene-birds, .scene-satellite { animation: none !important; }
+  .scene { transform: none !important; }
+}
+
 nextjs-portal { display: none !important; }

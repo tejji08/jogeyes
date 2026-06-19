@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, MessageCircle, Eye, BookOpen, Feather } from "lucide-react";
 import { posts, Post, PostTag } from "@/data/writing";
+import HeaderArt from "@/components/HeaderArt";
 
 export default function WritingPage() {
 
@@ -56,7 +57,7 @@ export default function WritingPage() {
       
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="mb-12 pt-8">
+          <div className="mb-12 pt-8 relative">
             <div className="flex items-center gap-3 mb-3">
               <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
                 <BookOpen className="w-6 h-6" />
@@ -66,6 +67,7 @@ export default function WritingPage() {
             <p className="text-lg text-muted-foreground">
               The 4Corner Collection and more — fiction, sci-fi, and experimental pieces.
             </p>
+            <HeaderArt name="writing" />
           </div>
 
           <div className="space-y-12">

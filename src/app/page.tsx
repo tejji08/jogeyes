@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Divider from "@/components/Divider";
 import { profile } from "@/data/profile";
 
 export default function Home() {
@@ -111,11 +112,13 @@ export default function Home() {
       {/* About strip */}
       <section className="px-4 sm:px-6 lg:px-8 -mt-6 mb-8">
         <div className="container mx-auto max-w-3xl">
-          <Card className="glass border-0 rounded-2xl p-6 sm:p-8 text-center">
+          <Card className="glass border-0 rounded-2xl p-6 sm:p-8 text-center pat pat-dots overflow-hidden">
             <p className="text-base sm:text-lg text-foreground/80 leading-relaxed">{profile.bio}</p>
           </Card>
         </div>
       </section>
+
+      <Divider variant="ribbon" />
 
       {/* Content Grid */}
       <section className="py-14 px-4 sm:px-6 lg:px-8">

@@ -10,6 +10,7 @@ import MiniPlayer from "@/components/MiniPlayer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Ambience from "@/components/Ambience";
 import ThemeDock from "@/components/ThemeDock";
+import Parallax from "@/components/Parallax";
 
 const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-fredoka", display: "swap" });
 const russo = Russo_One({ subsets: ["latin"], weight: "400", variable: "--font-russo", display: "swap" });
@@ -47,6 +48,7 @@ export default function RootLayout({
         />
         <ThemeProvider>
           <Ambience />
+          <Parallax />
           <div id="site-content">
             <PlayerProvider>
               <MotionWrapper>{children}</MotionWrapper>

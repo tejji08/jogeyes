@@ -8,6 +8,7 @@ import { Play, Pause, Music2, Calendar, Clock } from "lucide-react";
 import { useState } from "react";
 import { tracks } from "@/data/music";
 import ImageWithPlaceholder from "@/components/ImageWithPlaceholder";
+import HeaderArt from "@/components/HeaderArt";
 
 export default function MusicPage() {
   const [playingTrack, setPlayingTrack] = useState<string | null>(null);
@@ -35,7 +36,7 @@ export default function MusicPage() {
       
       <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="mb-12 pt-8">
+          <div className="mb-12 pt-8 relative">
             <div className="flex items-center gap-3 mb-3">
               <span className="grid place-items-center w-12 h-12 rounded-2xl glossy">
                 <Music2 className="w-6 h-6" />
@@ -45,6 +46,7 @@ export default function MusicPage() {
             <p className="text-lg text-muted-foreground">
               Original tracks made in Cubase — ambient, retrowave, orchestral, and acoustic — organized by genre.
             </p>
+            <HeaderArt name="music" />
           </div>
 
           <div className="space-y-12">
