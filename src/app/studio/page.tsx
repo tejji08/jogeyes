@@ -32,9 +32,27 @@ const SCHEMAS: Record<string, Schema> = {
     fields: [
       { key: "name", label: "Name", type: "text" },
       { key: "alias", label: "Site name / alias", type: "text" },
-      { key: "tagline", label: "Tagline", type: "textarea" },
+      { key: "role", label: "Role / title", type: "text", hint: "e.g. Photographer · Writer · Creator" },
+      { key: "tagline", label: "Tagline", type: "text" },
+      { key: "pitch", label: "Pitch", type: "textarea", hint: "Short 'available for…' line, shown on the contact CTA" },
       { key: "bio", label: "Bio", type: "textarea", big: true },
       { key: "location", label: "Location", type: "text" },
+      { key: "email", label: "Contact email", type: "text", hint: "Where inquiries are sent / shown. Required for the contact form." },
+      { key: "youtubeUrl", label: "YouTube URL", type: "text" },
+      { key: "instagramUrl", label: "Instagram URL", type: "text" },
+      { key: "twitterUrl", label: "Twitter / X URL", type: "text" },
+      { key: "githubUrl", label: "GitHub URL", type: "text" },
+    ],
+  },
+  services: {
+    label: "Services",
+    kind: "list",
+    singular: "service",
+    newItem: () => ({ id: rid(), area: "photography", title: "", blurb: "" }),
+    fields: [
+      { key: "title", label: "Title", type: "text" },
+      { key: "area", label: "Area (sets icon)", type: "select", options: ["photography", "writing", "youtube", "other"] },
+      { key: "blurb", label: "Description", type: "textarea" },
     ],
   },
   videos: {

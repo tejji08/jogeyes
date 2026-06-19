@@ -1,0 +1,20 @@
+[
+  {
+    "id": "svc-photo",
+    "area": "photography",
+    "title": "Photography",
+    "blurb": "Portraits, events, products, and creative shoots. Booked per session or project, with edited high-resolution delivery."
+  },
+  {
+    "id": "svc-writing",
+    "area": "writing",
+    "title": "Writing",
+    "blurb": "Fiction, ghostwriting, and commissioned pieces. Open to collaborations, serialized work, and one-off articles."
+  },
+  {
+    "id": "svc-youtube",
+    "area": "youtube",
+    "title": "YouTube & Video",
+    "blurb": "Sponsorships, collaborations, and edited video content — gaming, guitar, and creative edits for your channel or brand."
+  }
+]

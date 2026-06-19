@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Youtube, BookOpen, Users, Home, Camera, Sparkles } from "lucide-react";
+import { Youtube, BookOpen, Users, Home, Camera, Sparkles, Mail } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -14,6 +14,7 @@ export default function Navigation() {
     { href: "/writing", label: "Writing", icon: BookOpen },
     { href: "/photography", label: "Photography", icon: Camera },
     { href: "/community", label: "Community", icon: Users },
+    { href: "/contact", label: "Contact", icon: Mail },
   ];
 
   return (

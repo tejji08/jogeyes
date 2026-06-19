@@ -8,9 +8,17 @@ export interface ProfileLink {
 export interface Profile {
   name: string;
   alias: string;
+  role: string;
   tagline: string;
+  pitch: string;
   bio: string;
   location: string;
+  available: boolean;
+  email: string;
+  youtubeUrl: string;
+  instagramUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
   heroPrimary: ProfileLink;
   heroSecondary: ProfileLink;
 }

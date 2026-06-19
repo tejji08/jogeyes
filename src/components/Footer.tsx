@@ -1,15 +1,17 @@
 "use client"
 
 import Link from "next/link";
-import { Github, Youtube, BookOpen, Mail, Sparkles } from "lucide-react";
+import { Github, Youtube, Instagram, Twitter, Mail, Sparkles } from "lucide-react";
+import { profile } from "@/data/profile";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Youtube, href: "https://www.youtube.com/@Jogeyes", label: "YouTube" },
-    { icon: BookOpen, href: "/writing", label: "Writing" },
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Mail, href: "#", label: "Email" },
-  ];
+    { icon: Youtube, href: profile.youtubeUrl, label: "YouTube" },
+    { icon: Instagram, href: profile.instagramUrl, label: "Instagram" },
+    { icon: Twitter, href: profile.twitterUrl, label: "Twitter / X" },
+    { icon: Github, href: profile.githubUrl, label: "GitHub" },
+    { icon: Mail, href: profile.email ? `mailto:${profile.email}` : "", label: "Email" },
+  ].filter((s) => s.href);
 
   return (
     <footer className="mt-24 px-3 sm:px-4 pb-6">
@@ -46,9 +48,14 @@ export default function Footer() {
 
         <div className="mt-7 pt-5 border-t border-white/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Jogeyes · Hartej Singh</p>
-          <Link href="/studio" className="hover:text-primary transition-colors">
-            Edit site →
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/contact" className="hover:text-primary transition-colors">
+              Work with me →
+            </Link>
+            <Link href="/studio" className="hover:text-primary transition-colors">
+              Edit site
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

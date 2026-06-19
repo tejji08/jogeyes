@@ -1,13 +1,17 @@
 "use client"
 
 import Link from "next/link";
-import { Youtube, BookOpen, Users, ArrowRight, Camera, Sparkles, Star } from "lucide-react";
+import { Youtube, BookOpen, Users, ArrowRight, Camera, Sparkles, Star, Send, Mail } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Divider from "@/components/Divider";
 import { profile } from "@/data/profile";
+import { services } from "@/data/services";
+
+const areaIcon = (area: string) =>
+  area === "photography" ? Camera : area === "writing" ? BookOpen : area === "youtube" ? Youtube : Sparkles;
 
 export default function Home() {
   const sections = [
@@ -81,12 +85,14 @@ export default function Home() {
         <div className="container mx-auto text-center relative z-10">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm font-medium text-primary mb-7">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            {profile.alias} · creative portfolio
+            {profile.available ? "Available for work" : `${profile.alias} · portfolio`}
           </span>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
             Hi, I&apos;m <span className="aero-text">{profile.name.split(" ")[0]}</span>
           </h1>
+
+          <p className="text-base sm:text-lg font-medium text-foreground/70 mb-4">{profile.role}</p>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             {profile.tagline}
@@ -95,13 +101,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" className="text-base glossy border-0 h-12 px-7 rounded-xl">
               <Link href={profile.heroPrimary.href}>
-                <Youtube className="w-5 h-5 mr-2" />
+                <Camera className="w-5 h-5 mr-2" />
                 {profile.heroPrimary.label}
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-base h-12 px-7 rounded-xl glass border-0 text-foreground hover:text-primary">
               <Link href={profile.heroSecondary.href}>
-                <BookOpen className="w-5 h-5 mr-2" />
+                <Send className="w-5 h-5 mr-2" />
                 {profile.heroSecondary.label}
               </Link>
             </Button>
@@ -155,6 +161,52 @@ export default function Home() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Services / Work with me */}
+      <Divider variant="wave" flip />
+      <section id="services" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm font-medium text-primary mb-5">
+              <Sparkles className="w-4 h-4" /> Work with me
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+              What I can do for <span className="aero-text">you</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Hire me for shoots, commissions, and collaborations — here&apos;s where I can help.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map((s) => {
+              const Icon = areaIcon(s.area);
+              return (
+                <Card key={s.id} className="glass glass-hover border-0 rounded-2xl p-7 flex flex-col">
+                  <div className="inline-flex w-12 h-12 rounded-2xl glossy items-center justify-center mb-4">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground mb-5 flex-1">{s.blurb}</p>
+                  <Link href="/contact" className="inline-flex items-center text-primary font-medium hover:translate-x-1 transition-transform">
+                    Get in touch <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="mt-12">
+            <Card className="glass border-0 rounded-2xl p-8 sm:p-10 max-w-3xl mx-auto text-center pat pat-grid overflow-hidden">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3">Have a project in mind?</h3>
+              <p className="text-muted-foreground mb-6">{profile.pitch}</p>
+              <Button asChild size="lg" className="glossy border-0 rounded-xl h-12 px-8">
+                <Link href="/contact"><Mail className="w-5 h-5 mr-2" /> Start a project</Link>
+              </Button>
+            </Card>
           </div>
         </div>
       </section>
