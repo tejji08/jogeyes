@@ -1,7 +1,7 @@
 // Decorative ambient background, rendered once in the root layout.
-// Aero: floating bubbles + soft light glows. Retro: stars + CRT scanlines.
-// Pure static markup (deterministic values) so it works in SSR with no
-// hydration mismatch and needs no client JS. Toggled by [data-theme] in CSS.
+// Aero: floating bubbles + soft light glows. Atompunk: spinning atom,
+// sunbursts, and CRT scanlines. Pure static markup (deterministic) so it
+// works in SSR with no hydration mismatch. Toggled by [data-theme] in CSS.
 
 const BUBBLES = [
   { left: "6%", size: 26, dur: 22, delay: 0 },
@@ -17,6 +17,23 @@ const BUBBLES = [
   { left: "94%", size: 18, dur: 20, delay: 11 },
   { left: "33%", size: 12, dur: 23, delay: 13 },
 ];
+
+const SPIKES = Array.from({ length: 24 }, (_, i) => {
+  const a = (i * 15 * Math.PI) / 180;
+  return { x2: +(50 + 50 * Math.cos(a)).toFixed(2), y2: +(50 + 50 * Math.sin(a)).toFixed(2) };
+});
+
+function Sunburst({ className }: { className: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1.6">
+        {SPIKES.map((s, i) => (
+          <line key={i} x1="50" y1="50" x2={s.x2} y2={s.y2} />
+        ))}
+      </g>
+    </svg>
+  );
+}
 
 export default function Ambience() {
   return (
@@ -39,8 +56,18 @@ export default function Ambience() {
           />
         ))}
       </div>
-      <div className="ambience-retro">
-        <div className="ambience-stars" />
+
+      <div className="ambience-atom">
+        <Sunburst className="ambience-burst one" />
+        <Sunburst className="ambience-burst two" />
+        <svg className="ambience-atom-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
+          <g strokeWidth="2.5">
+            <ellipse cx="50" cy="50" rx="46" ry="18" />
+            <ellipse cx="50" cy="50" rx="46" ry="18" transform="rotate(60 50 50)" />
+            <ellipse cx="50" cy="50" rx="46" ry="18" transform="rotate(120 50 50)" />
+          </g>
+          <circle cx="50" cy="50" r="6" fill="currentColor" stroke="none" />
+        </svg>
         <div className="ambience-scan" />
       </div>
     </div>

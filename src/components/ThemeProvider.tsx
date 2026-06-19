@@ -6,8 +6,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider
       attribute="data-theme"
-      defaultTheme="aero"
-      themes={["aero", "retro"]}
+      defaultTheme="aero-light"
+      themes={["aero-light", "aero-dark", "atom-light", "atom-dark"]}
       enableSystem={false}
       disableTransitionOnChange
     >

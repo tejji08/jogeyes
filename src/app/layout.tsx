@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Fredoka, Russo_One, Oxanium, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -9,10 +9,12 @@ import { PlayerProvider } from "@/context/player";
 import MiniPlayer from "@/components/MiniPlayer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Ambience from "@/components/Ambience";
+import ThemeDock from "@/components/ThemeDock";
 
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
-const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
+const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-fredoka", display: "swap" });
+const russo = Russo_One({ subsets: ["latin"], weight: "400", variable: "--font-russo", display: "swap" });
+const oxanium = Oxanium({ subsets: ["latin"], variable: "--font-oxanium", display: "swap" });
+const atomMono = Share_Tech_Mono({ subsets: ["latin"], weight: "400", variable: "--font-atommono", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Jogeyes — Hartej's Creative Portfolio",
@@ -25,7 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${sora.variable} ${grotesk.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fredoka.variable} ${russo.variable} ${oxanium.variable} ${atomMono.variable}`}
+    >
       <body className="antialiased">
         <a href="#site-content" className="skip-link sr-only focus:not-sr-only">Skip to content</a>
         <ErrorReporter />
@@ -47,8 +53,8 @@ export default function RootLayout({
               <MiniPlayer />
             </PlayerProvider>
           </div>
+          <ThemeDock />
         </ThemeProvider>
-        {/* Simple analytics beacon: sends a small event on page load to /api/analytics/collect */}
         <Script id="analytics-beacon" strategy="afterInteractive">
           {`(function(){function send(){try{navigator.sendBeacon('/api/analytics/collect', JSON.stringify({path:location.pathname, ts:Date.now()}));}catch(e){fetch('/api/analytics/collect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path:location.pathname,ts:Date.now()})})}}; if(document.readyState==='complete') send(); else window.addEventListener('load',send);})();`}
         </Script>

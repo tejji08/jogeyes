@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-sans: var(--font-fredoka), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-atommono), ui-monospace, monospace;
   --color-wood-dark: var(--wood-dark);
   --color-wood-medium: var(--wood-medium);
   --color-wood-light: var(--wood-light);
@@ -47,404 +47,323 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ============================================================
-   THEME: FRUTIGER AERO (default) — bright skies, gloss, glass,
-   nature optimism. Maxed out, not buttoned-up.
-   ============================================================ */
+/* ===================== AERO LIGHT (default) ===================== */
 :root {
-  --radius: 1.25rem;
+  --radius: 1.4rem;
+  --font-body: var(--font-fredoka);
+  --font-display: var(--font-fredoka);
 
-  --background: oklch(0.96 0.03 225);
-  --foreground: oklch(0.26 0.07 255);
-
-  --card: oklch(0.99 0.01 220);
-  --card-foreground: oklch(0.26 0.07 255);
-  --popover: oklch(0.99 0.01 220);
-  --popover-foreground: oklch(0.26 0.07 255);
-
-  --primary: oklch(0.62 0.19 235);
-  --primary-foreground: oklch(0.99 0.01 230);
-
-  --secondary: oklch(0.92 0.06 210);
-  --secondary-foreground: oklch(0.28 0.07 255);
-
-  --muted: oklch(0.94 0.03 220);
-  --muted-foreground: oklch(0.48 0.05 255);
-
-  --accent: oklch(0.84 0.20 140);
-  --accent-foreground: oklch(0.28 0.10 150);
-
-  --destructive: oklch(0.62 0.22 25);
-
-  --border: oklch(0.87 0.04 220);
-  --input: oklch(0.90 0.03 220);
-  --ring: oklch(0.62 0.19 235);
-
-  --wood-dark: oklch(0.40 0.13 245);
-  --wood-medium: oklch(0.70 0.12 205);
-  --wood-light: oklch(0.90 0.07 200);
-  --wood-accent: oklch(0.66 0.18 200);
-
-  --chart-1: oklch(0.62 0.19 235);
-  --chart-2: oklch(0.70 0.16 195);
-  --chart-3: oklch(0.78 0.19 145);
-  --chart-4: oklch(0.80 0.17 95);
-  --chart-5: oklch(0.65 0.22 320);
-
-  --sidebar: oklch(0.99 0.01 220);
-  --sidebar-foreground: oklch(0.26 0.07 255);
-  --sidebar-primary: oklch(0.62 0.19 235);
-  --sidebar-primary-foreground: oklch(0.99 0.01 230);
-  --sidebar-accent: oklch(0.92 0.06 210);
-  --sidebar-accent-foreground: oklch(0.28 0.07 255);
-  --sidebar-border: oklch(0.87 0.04 220);
-  --sidebar-ring: oklch(0.62 0.19 235);
+  --background: #e9f6ff;
+  --foreground: #133249;
+  --card: #ffffff;
+  --card-foreground: #133249;
+  --popover: #ffffff;
+  --popover-foreground: #133249;
+  --primary: #1f93ff;
+  --primary-foreground: #ffffff;
+  --secondary: #d6edff;
+  --secondary-foreground: #133249;
+  --muted: #e6f3fb;
+  --muted-foreground: #587890;
+  --accent: #4fd06a;
+  --accent-foreground: #0e3d1a;
+  --destructive: #e5484d;
+  --border: #cce5f5;
+  --input: #d4e9f6;
+  --ring: #1f93ff;
+  --wood-dark: #1f6f9c;
+  --wood-medium: #66b6d6;
+  --wood-light: #cfeaf6;
+  --wood-accent: #1ab6d6;
+  --chart-1: #1f93ff; --chart-2: #1ab6d6; --chart-3: #4fd06a; --chart-4: #f5b942; --chart-5: #a06bff;
+  --sidebar: #ffffff; --sidebar-foreground: #133249; --sidebar-primary: #1f93ff;
+  --sidebar-primary-foreground: #ffffff; --sidebar-accent: #d6edff;
+  --sidebar-accent-foreground: #133249; --sidebar-border: #cce5f5; --sidebar-ring: #1f93ff;
 }
 
-/* ============================================================
-   THEME: RETRO WEB 1.0 — paper + grid, windowed cards, hard
-   shadows, monospace labels, classic web-blue links.
-   ============================================================ */
-[data-theme="retro"] {
-  --radius: 0.3rem;
+/* ===================== AERO DARK ===================== */
+[data-theme="aero-dark"] {
+  --background: #061525;
+  --foreground: #dbeeff;
+  --card: #0d2236;
+  --card-foreground: #dbeeff;
+  --popover: #0d2236;
+  --popover-foreground: #dbeeff;
+  --primary: #38c6ff;
+  --primary-foreground: #04263b;
+  --secondary: #10293f;
+  --secondary-foreground: #dbeeff;
+  --muted: #0e2336;
+  --muted-foreground: #8fb3c9;
+  --accent: #5ef08a;
+  --accent-foreground: #04210f;
+  --destructive: #ff6b6b;
+  --border: #1d3a52;
+  --input: #1d3a52;
+  --ring: #38c6ff;
+  --wood-dark: #0a1c2e; --wood-medium: #2a567a; --wood-light: #14304a; --wood-accent: #38c6ff;
+  --chart-1: #38c6ff; --chart-2: #5ef08a; --chart-3: #a06bff; --chart-4: #ffd166; --chart-5: #ff7eb6;
+  --sidebar: #0d2236; --sidebar-foreground: #dbeeff; --sidebar-primary: #38c6ff;
+  --sidebar-primary-foreground: #04263b; --sidebar-accent: #10293f;
+  --sidebar-accent-foreground: #dbeeff; --sidebar-border: #1d3a52; --sidebar-ring: #38c6ff;
+}
 
-  --background: oklch(0.93 0.012 95);
-  --foreground: oklch(0.20 0.01 260);
+/* ===================== ATOMPUNK LIGHT (1950s poster) ===================== */
+[data-theme="atom-light"] {
+  --radius: 0.4rem;
+  --font-body: var(--font-oxanium);
+  --font-display: var(--font-russo);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.01 260);
+  --background: #f3e8cf;
+  --foreground: #2b2016;
+  --card: #fbf3e0;
+  --card-foreground: #2b2016;
+  --popover: #fbf3e0;
+  --popover-foreground: #2b2016;
+  --primary: #128a82;
+  --primary-foreground: #fff7e6;
+  --secondary: #e7d5ad;
+  --secondary-foreground: #2b2016;
+  --muted: #ecdfbf;
+  --muted-foreground: #6e5b41;
+  --accent: #e2552a;
+  --accent-foreground: #fff7e6;
+  --destructive: #c0341f;
+  --border: #2b2016;
+  --input: #d8c39a;
+  --ring: #128a82;
+  --wood-dark: #2b2016; --wood-medium: #b7986a; --wood-light: #e7d5ad; --wood-accent: #d99a1c;
+  --chart-1: #128a82; --chart-2: #e2552a; --chart-3: #d99a1c; --chart-4: #2b2016; --chart-5: #7a9b3a;
+  --sidebar: #fbf3e0; --sidebar-foreground: #2b2016; --sidebar-primary: #128a82;
+  --sidebar-primary-foreground: #fff7e6; --sidebar-accent: #e7d5ad;
+  --sidebar-accent-foreground: #2b2016; --sidebar-border: #2b2016; --sidebar-ring: #128a82;
+}
 
-  --primary: oklch(0.45 0.20 265);
-  --primary-foreground: oklch(0.99 0 0);
+/* ===================== ATOMPUNK DARK (Fallout terminal) ===================== */
+[data-theme="atom-dark"] {
+  --radius: 0.4rem;
+  --font-body: var(--font-oxanium);
+  --font-display: var(--font-russo);
 
-  --secondary: oklch(0.87 0.015 95);
-  --secondary-foreground: oklch(0.20 0.01 260);
-
-  --muted: oklch(0.89 0.012 95);
-  --muted-foreground: oklch(0.44 0.02 260);
-
-  --accent: oklch(0.55 0.11 195);
-  --accent-foreground: oklch(0.99 0 0);
-
-  --destructive: oklch(0.55 0.22 25);
-
-  --border: oklch(0.24 0.01 260);
-  --input: oklch(0.78 0.01 95);
-  --ring: oklch(0.45 0.20 265);
-
-  --wood-dark: oklch(0.20 0.01 260);
-  --wood-medium: oklch(0.60 0.02 260);
-  --wood-light: oklch(0.87 0.015 95);
-  --wood-accent: oklch(0.45 0.20 265);
+  --background: #0b0f0a;
+  --foreground: #ece2bf;
+  --card: #12170f;
+  --card-foreground: #ece2bf;
+  --popover: #12170f;
+  --popover-foreground: #ece2bf;
+  --primary: #ffb000;
+  --primary-foreground: #1a1205;
+  --secondary: #1b2113;
+  --secondary-foreground: #ece2bf;
+  --muted: #161b10;
+  --muted-foreground: #a7b083;
+  --accent: #4cff84;
+  --accent-foreground: #04210f;
+  --destructive: #ff5a3c;
+  --border: #44521f;
+  --input: #2a3417;
+  --ring: #ffb000;
+  --wood-dark: #0b0f0a; --wood-medium: #4d5e2a; --wood-light: #1b2113; --wood-accent: #ffb000;
+  --chart-1: #ffb000; --chart-2: #4cff84; --chart-3: #ff7e3c; --chart-4: #9ad1ff; --chart-5: #d98cff;
+  --sidebar: #12170f; --sidebar-foreground: #ece2bf; --sidebar-primary: #ffb000;
+  --sidebar-primary-foreground: #1a1205; --sidebar-accent: #1b2113;
+  --sidebar-accent-foreground: #ece2bf; --sidebar-border: #44521f; --sidebar-ring: #ffb000;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border outline-ring/50; }
   body {
     @apply text-foreground;
-    font-family: var(--font-sans);
-    background-color: oklch(0.96 0.03 225);
+    font-family: var(--font-body);
+    background-color: #e9f6ff;
     background-image:
-      radial-gradient(1100px 520px at 12% -8%, oklch(0.82 0.14 205 / 0.70), transparent 60%),
-      radial-gradient(1000px 680px at 112% 4%, oklch(0.84 0.16 145 / 0.55), transparent 55%),
-      radial-gradient(820px 820px at 50% 118%, oklch(0.74 0.16 250 / 0.50), transparent 60%),
-      radial-gradient(600px 600px at 85% 75%, oklch(0.86 0.14 320 / 0.30), transparent 60%);
+      radial-gradient(1100px 520px at 12% -8%, rgba(120,205,255,.7), transparent 60%),
+      radial-gradient(1000px 680px at 112% 4%, rgba(120,235,160,.5), transparent 55%),
+      radial-gradient(820px 820px at 50% 118%, rgba(110,160,255,.45), transparent 60%);
     background-attachment: fixed;
   }
-  /* Soft top-light sheen for full-Aero atmosphere */
+  h1, h2, h3 { font-family: var(--font-display); }
+
   body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
       radial-gradient(120% 60% at 50% -12%, rgba(255,255,255,0.55), transparent 60%),
       radial-gradient(80% 50% at 100% 110%, rgba(170,235,255,0.30), transparent 60%);
   }
-  [data-theme="retro"] body {
-    font-family: var(--font-grotesk), system-ui, sans-serif;
-    background-color: oklch(0.93 0.012 95);
+
+  [data-theme="aero-dark"] body {
+    background-color: #061525;
     background-image:
-      linear-gradient(oklch(0.20 0.01 260 / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.20 0.01 260 / 0.05) 1px, transparent 1px);
-    background-size: 24px 24px;
-    background-attachment: fixed;
+      radial-gradient(1100px 560px at 10% -10%, rgba(40,120,180,.55), transparent 60%),
+      radial-gradient(1000px 700px at 115% 8%, rgba(40,180,120,.40), transparent 58%),
+      radial-gradient(900px 900px at 50% 120%, rgba(90,80,200,.45), transparent 60%);
   }
-  [data-theme="retro"] body::before { display: none; }
+  [data-theme="aero-dark"] body::before {
+    background: radial-gradient(120% 60% at 50% -12%, rgba(120,200,255,0.18), transparent 60%);
+  }
+
+  [data-theme="atom-light"] body {
+    background-color: #f3e8cf;
+    background-image:
+      radial-gradient(900px 520px at 110% -10%, rgba(18,138,130,.18), transparent 60%),
+      radial-gradient(800px 600px at -10% 110%, rgba(226,85,42,.16), transparent 60%),
+      repeating-linear-gradient(45deg, rgba(43,32,22,.035) 0 2px, transparent 2px 22px);
+  }
+  [data-theme="atom-dark"] body {
+    background-color: #0b0f0a;
+    background-image:
+      radial-gradient(900px 700px at 50% 120%, rgba(76,255,132,.10), transparent 60%),
+      radial-gradient(700px 500px at 100% 0%, rgba(255,176,0,.10), transparent 60%);
+  }
+  [data-theme^="atom"] body::before { display: none; }
 
   .skip-link {
-    position: absolute;
-    left: 1rem;
-    top: 0.75rem;
-    background: linear-gradient(90deg, var(--wood-accent), var(--primary));
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    z-index: 60;
-    transform: translateY(-120%);
-    transition: transform 160ms ease;
+    position: absolute; left: 1rem; top: 0.75rem;
+    background: var(--primary); color: var(--primary-foreground);
+    padding: 0.5rem 0.75rem; border-radius: 0.5rem; z-index: 60;
+    transform: translateY(-120%); transition: transform 160ms ease;
   }
   .skip-link:focus, .skip-link:not(.sr-only) { transform: translateY(0%); }
-
-  :focus-visible {
-    outline: 3px solid var(--ring);
-    outline-offset: 2px;
-  }
+  :focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 }
 
 @layer utilities {
-  /* Frosted glass panel (Aero). Repurposes .wood-texture too. */
-  .glass,
-  .wood-texture {
-    background: linear-gradient(
-      160deg,
-      rgba(255, 255, 255, 0.82) 0%,
-      rgba(255, 255, 255, 0.58) 45%,
-      rgba(206, 238, 255, 0.55) 100%
-    );
+  #site-content { position: relative; z-index: 1; }
+
+  /* ===== Surfaces (default = Aero Light frosted glass) ===== */
+  .glass, .wood-texture {
+    background: linear-gradient(160deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.58) 45%, rgba(206,238,255,.55) 100%);
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.95),
-      inset 0 -10px 24px -18px rgba(31, 89, 145, 0.45),
-      0 12px 34px -12px rgba(31, 89, 145, 0.40);
+    border: 1px solid rgba(255,255,255,.85);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.95), inset 0 -10px 24px -18px rgba(31,89,145,.45), 0 12px 34px -12px rgba(31,89,145,.40);
+  }
+  [data-theme="aero-dark"] .glass, [data-theme="aero-dark"] .wood-texture {
+    background: linear-gradient(160deg, rgba(46,82,124,.5), rgba(18,40,68,.4));
+    border: 1px solid rgba(150,210,255,.25);
+    box-shadow: inset 0 1px 0 rgba(190,225,255,.18), 0 14px 36px -14px rgba(0,0,0,.65);
+  }
+  [data-theme^="atom"] .glass, [data-theme^="atom"] .wood-texture {
+    background: var(--card);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    border: 2px solid var(--border);
+    box-shadow: 5px 5px 0 rgba(43,32,22,.18);
+  }
+  [data-theme="atom-dark"] .glass, [data-theme="atom-dark"] .wood-texture {
+    background: linear-gradient(180deg, #141a10, #0e120b);
+    border: 1.5px solid #4d5e2a;
+    box-shadow: inset 0 0 26px rgba(76,255,132,.06), 0 0 0 1px rgba(0,0,0,.5), 0 12px 32px -14px rgba(0,0,0,.7);
   }
 
-  /* Glossy candy button with a top sheen (Aero) */
+  /* ===== Buttons ===== */
   .glossy {
-    position: relative;
-    background-image: linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--primary) 80%, white) 0%,
-      var(--primary) 46%,
-      color-mix(in oklch, var(--primary) 76%, black 20%) 100%
-    );
+    position: relative; overflow: hidden;
+    background-image: linear-gradient(180deg, color-mix(in oklab, var(--primary) 80%, white) 0%, var(--primary) 46%, color-mix(in oklab, var(--primary) 76%, black 20%) 100%);
     color: var(--primary-foreground);
-    border: 1px solid color-mix(in oklch, var(--primary) 58%, black 14%);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 8px 18px -8px color-mix(in oklch, var(--primary) 70%, transparent);
-    overflow: hidden;
+    border: 1px solid color-mix(in oklab, var(--primary) 58%, black 14%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 8px 18px -8px color-mix(in oklab, var(--primary) 70%, transparent);
+    transition: transform .16s ease, box-shadow .2s ease, filter .2s ease;
   }
   .glossy::before {
-    content: "";
-    position: absolute;
-    inset: 1px 1px 50% 1px;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0));
-    pointer-events: none;
+    content: ""; position: absolute; inset: 1px 1px 50% 1px; border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0)); pointer-events: none;
   }
+  .glossy::after {
+    content: ""; position: absolute; top: 0; left: -65%; width: 45%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent);
+    transform: skewX(-18deg); opacity: 0; pointer-events: none;
+  }
+  .glossy:hover { transform: translateY(-1px); filter: saturate(1.08) brightness(1.03); }
+  .glossy:hover::after { animation: glossy-sweep .75s ease; }
+  .glossy:active { transform: translateY(0); }
+  @keyframes glossy-sweep { from { left: -65%; opacity: .9; } to { left: 125%; opacity: 0; } }
   .glossy-lime {
-    background-image: linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--accent) 84%, white) 0%,
-      var(--accent) 46%,
-      color-mix(in oklch, var(--accent) 78%, black 18%) 100%
-    );
-    color: var(--accent-foreground);
-    border-color: color-mix(in oklch, var(--accent) 54%, black 16%);
+    background-image: linear-gradient(180deg, color-mix(in oklab, var(--accent) 84%, white) 0%, var(--accent) 46%, color-mix(in oklab, var(--accent) 78%, black 18%) 100%);
+    color: var(--accent-foreground); border-color: color-mix(in oklab, var(--accent) 54%, black 16%);
   }
+  /* Atompunk buttons: chunky, uppercase, bordered */
+  [data-theme^="atom"] .glossy {
+    background-image: none; background: var(--primary); color: var(--primary-foreground);
+    border: 2px solid var(--foreground); border-radius: var(--radius);
+    box-shadow: 3px 3px 0 rgba(43,32,22,.3);
+    text-transform: uppercase; letter-spacing: .04em; font-weight: 700;
+  }
+  [data-theme^="atom"] .glossy::before { display: none; }
+  [data-theme^="atom"] .glossy:hover { transform: translate(-1px,-1px); filter: none; box-shadow: 4px 4px 0 rgba(43,32,22,.32); }
+  [data-theme^="atom"] .glossy:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 rgba(43,32,22,.3); }
+  [data-theme="atom-dark"] .glossy {
+    border-color: #7a5a00; color: #1a1205;
+    box-shadow: 0 0 14px rgba(255,176,0,.45), inset 0 0 8px rgba(255,220,150,.4);
+  }
+  [data-theme="atom-dark"] .glossy:hover { box-shadow: 0 0 22px rgba(255,176,0,.75), inset 0 0 10px rgba(255,220,150,.5); transform: translateY(-1px); }
 
+  /* ===== Display text ===== */
   .aero-text {
-    background: linear-gradient(100deg,
-      oklch(0.52 0.20 255),
-      oklch(0.62 0.18 205),
-      oklch(0.72 0.20 150),
-      oklch(0.62 0.18 205),
-      oklch(0.52 0.20 255));
+    background: linear-gradient(100deg, #2f6bff, #18b6d6, #36d36a, #18b6d6, #2f6bff);
     background-size: 220% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
     animation: aero-shimmer 8s ease-in-out infinite;
   }
-  @keyframes aero-shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  @keyframes aero-shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  [data-theme="aero-dark"] .aero-text { background-image: linear-gradient(100deg, #7fd0ff, #5ef0c0, #9affb0, #5ef0c0, #7fd0ff); }
+  [data-theme="atom-light"] .aero-text {
+    background: none; -webkit-background-clip: initial; background-clip: initial;
+    color: var(--accent); text-shadow: 2px 2px 0 rgba(43,32,22,.22); animation: none;
+  }
+  [data-theme="atom-dark"] .aero-text {
+    background: none; -webkit-background-clip: initial; background-clip: initial;
+    color: var(--primary); text-shadow: 0 0 16px rgba(255,176,0,.6); animation: none;
   }
 
-  .aero-blob {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(40px);
-    opacity: 0.6;
-    pointer-events: none;
-    animation: aero-float 14s ease-in-out infinite;
-  }
-  @keyframes aero-float {
-    0%, 100% { transform: translateY(0) translateX(0) scale(1); }
-    50% { transform: translateY(-22px) translateX(12px) scale(1.06); }
-  }
+  /* ===== Hover lift for cards ===== */
+  .glass-hover { transition: transform .25s ease, box-shadow .25s ease; }
+  .glass-hover:hover { transform: translateY(-4px); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 24px 50px -16px rgba(31,89,145,.5); }
+  [data-theme="aero-dark"] .glass-hover:hover { box-shadow: 0 24px 50px -16px rgba(0,0,0,.7); }
+  [data-theme^="atom"] .glass-hover:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 rgba(43,32,22,.22); }
+  [data-theme="atom-dark"] .glass-hover:hover { box-shadow: 8px 8px 0 rgba(0,0,0,.6), 0 0 18px rgba(76,255,132,.12); }
+
+  .aero-blob { position: absolute; border-radius: 9999px; filter: blur(40px); opacity: .6; pointer-events: none; animation: aero-float 14s ease-in-out infinite; }
+  @keyframes aero-float { 0%,100% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(-22px) translateX(12px) scale(1.06); } }
+  [data-theme^="atom"] .aero-blob { display: none; }
 
   .nav-scroll::-webkit-scrollbar { height: 6px; }
   .nav-scroll::-webkit-scrollbar-track { background: transparent; }
   .nav-scroll::-webkit-scrollbar-thumb { background: var(--wood-accent); border-radius: 3px; }
-  .nav-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-  /* ---- RETRO WEB 1.0 overrides ---- */
-  [data-theme="retro"] .glass,
-  [data-theme="retro"] .wood-texture {
-    background: var(--card);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: 2px solid var(--foreground);
-    box-shadow: 5px 5px 0 oklch(0.20 0.01 260 / 0.18);
-  }
-  [data-theme="retro"] .glossy {
-    background: var(--primary);
-    background-image: none;
-    color: var(--primary-foreground);
-    border: 2px solid var(--foreground);
-    box-shadow: 3px 3px 0 oklch(0.20 0.01 260 / 0.30);
-  }
-  [data-theme="retro"] .glossy::before { display: none; }
-  [data-theme="retro"] .glossy-lime { background: var(--accent); }
-  [data-theme="retro"] .aero-text {
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    color: var(--primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 2px;
-  }
-  [data-theme="retro"] .aero-blob { display: none; }
-  /* mono labels feel for retro */
-  [data-theme="retro"] .retro-mono { font-family: var(--font-jetbrains), monospace; }
-}
-
-/* ============================================================
-   VISUAL FLAIR — ambient layers, gloss sweeps, hover lifts,
-   retro 3D detail. Applies site-wide for both themes.
-   ============================================================ */
-@layer utilities {
-  #site-content { position: relative; z-index: 1; }
-
-  /* --- Glossy: hover lift + animated shine sweep --- */
-  .glossy { transition: transform .16s ease, box-shadow .2s ease, filter .2s ease; }
-  .glossy:hover {
-    transform: translateY(-1px);
-    filter: saturate(1.08) brightness(1.03);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.85),
-      0 14px 26px -8px color-mix(in oklch, var(--primary) 60%, transparent);
-  }
-  .glossy:active { transform: translateY(0); }
-  .glossy::after {
-    content: "";
-    position: absolute; top: 0; left: -65%;
-    width: 45%; height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent);
-    transform: skewX(-18deg);
-    opacity: 0; pointer-events: none;
-  }
-  .glossy:hover::after { animation: glossy-sweep .75s ease; }
-  @keyframes glossy-sweep {
-    from { left: -65%; opacity: .9; }
-    to   { left: 125%; opacity: 0; }
-  }
-
-  /* --- Glass: opt-in hover lift with stronger reflection --- */
-  .glass-hover { transition: transform .25s ease, box-shadow .25s ease; }
-  .glass-hover:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.95),
-      inset 0 -12px 26px -18px rgba(31,89,145,.5),
-      0 24px 50px -16px rgba(31,89,145,.5);
-  }
-
-  /* --- Ambient decorative layer (rendered once in layout) --- */
+  /* ===== Ambient layer ===== */
   .ambience { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
   .ambience-aero { position: absolute; inset: 0; }
+  .ambience-atom { position: absolute; inset: 0; display: none; }
+  [data-theme^="atom"] .ambience-aero { display: none; }
+  [data-theme^="atom"] .ambience-atom { display: block; }
 
-  .ambience-glow {
-    position: absolute; width: 44vw; height: 44vw; border-radius: 9999px;
-    filter: blur(70px); opacity: .55;
-    background: radial-gradient(circle, rgba(120,220,180,.55), transparent 65%);
-    top: -12%; right: -8%;
-    animation: aero-float 16s ease-in-out infinite;
-  }
-  .ambience-glow.two {
-    background: radial-gradient(circle, rgba(120,180,255,.55), transparent 65%);
-    top: auto; bottom: -14%; left: -10%; right: auto; animation-delay: 5s;
-  }
-  .ambience-glow.three {
-    width: 30vw; height: 30vw;
-    background: radial-gradient(circle, rgba(190,160,255,.45), transparent 65%);
-    top: 30%; left: 55%; right: auto; animation-delay: 9s;
-  }
+  .ambience-glow { position: absolute; width: 44vw; height: 44vw; border-radius: 9999px; filter: blur(70px); opacity: .55; background: radial-gradient(circle, rgba(120,220,180,.55), transparent 65%); top: -12%; right: -8%; animation: aero-float 16s ease-in-out infinite; }
+  .ambience-glow.two { background: radial-gradient(circle, rgba(120,180,255,.55), transparent 65%); top: auto; bottom: -14%; left: -10%; right: auto; animation-delay: 5s; }
+  .ambience-glow.three { width: 30vw; height: 30vw; background: radial-gradient(circle, rgba(190,160,255,.45), transparent 65%); top: 30%; left: 55%; right: auto; animation-delay: 9s; }
+  [data-theme="aero-dark"] .ambience-glow { opacity: .4; }
 
-  .ambience-bubble {
-    position: absolute; bottom: -10%; border-radius: 9999px;
-    background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.95), rgba(185,228,255,.4) 45%, rgba(150,210,255,.05) 72%);
-    box-shadow: inset 0 0 14px rgba(255,255,255,.6), 0 0 10px rgba(160,215,255,.4);
-    animation: bubble-rise linear infinite;
-  }
-  @keyframes bubble-rise {
-    0%   { transform: translateY(0) translateX(0) scale(.85); opacity: 0; }
-    12%  { opacity: .9; }
-    88%  { opacity: .7; }
-    100% { transform: translateY(-120vh) translateX(24px) scale(1.05); opacity: 0; }
-  }
+  .ambience-bubble { position: absolute; bottom: -10%; border-radius: 9999px; background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.95), rgba(185,228,255,.4) 45%, rgba(150,210,255,.05) 72%); box-shadow: inset 0 0 14px rgba(255,255,255,.6), 0 0 10px rgba(160,215,255,.4); animation: bubble-rise linear infinite; }
+  @keyframes bubble-rise { 0% { transform: translateY(0) scale(.85); opacity: 0; } 12% { opacity: .9; } 88% { opacity: .7; } 100% { transform: translateY(-120vh) translateX(24px) scale(1.05); opacity: 0; } }
 
-  /* retro ambience: stars + CRT scanlines */
-  .ambience-retro { position: absolute; inset: 0; display: none; }
-  [data-theme="retro"] .ambience-aero { display: none; }
-  [data-theme="retro"] .ambience-retro { display: block; }
-  .ambience-stars {
-    position: absolute; inset: 0; opacity: .22;
-    background-image:
-      radial-gradient(circle, rgba(20,30,60,.55) 1px, transparent 1.6px),
-      radial-gradient(circle, rgba(20,30,60,.4) 1px, transparent 1.6px);
-    background-size: 84px 84px, 124px 124px;
-    background-position: 0 0, 42px 62px;
-  }
-  .ambience-scan {
-    position: absolute; inset: 0; opacity: .5; mix-blend-mode: multiply;
-    background: repeating-linear-gradient(0deg, rgba(0,0,0,.06) 0 1px, transparent 1px 3px);
-    animation: scan-flicker 5s steps(50) infinite;
-  }
-  @keyframes scan-flicker { 0%,100% { opacity: .42; } 50% { opacity: .56; } }
+  /* atom ambience */
+  .ambience-atom-symbol { position: absolute; top: 7%; right: 5%; width: 170px; height: 170px; opacity: .2; color: var(--primary); animation: atom-spin 26s linear infinite; }
+  .ambience-burst { position: absolute; width: 240px; height: 240px; opacity: .14; }
+  .ambience-burst.one { top: -50px; left: -50px; color: var(--accent); }
+  .ambience-burst.two { bottom: -60px; right: -30px; color: var(--wood-accent); }
+  @keyframes atom-spin { to { transform: rotate(360deg); } }
+  .ambience-scan { position: absolute; inset: 0; opacity: .5; mix-blend-mode: screen; background: repeating-linear-gradient(0deg, rgba(120,255,150,.07) 0 1px, transparent 1px 3px); animation: scan-flicker 5s steps(50) infinite; }
+  [data-theme="atom-light"] .ambience-scan { display: none; }
+  [data-theme="atom-dark"] .ambience-atom-symbol { filter: drop-shadow(0 0 8px rgba(255,176,0,.45)); opacity: .28; }
+  @keyframes scan-flicker { 0%,100% { opacity: .4; } 50% { opacity: .56; } }
 
-  /* --- Retro 3D detail: beveled buttons + hard card lift --- */
-  [data-theme="retro"] .glossy {
-    border: 2px solid var(--foreground);
-    box-shadow:
-      inset -2px -2px 0 rgba(0,0,0,.32),
-      inset 2px 2px 0 rgba(255,255,255,.5),
-      3px 3px 0 oklch(0.20 0.01 260 / 0.30);
-  }
-  [data-theme="retro"] .glossy:hover { transform: translate(-1px,-1px); filter: none; }
-  [data-theme="retro"] .glossy:hover::after { animation: none; }
-  [data-theme="retro"] .glossy:active {
-    transform: translate(1px,1px);
-    box-shadow:
-      inset 2px 2px 0 rgba(0,0,0,.32),
-      inset -2px -2px 0 rgba(255,255,255,.4),
-      1px 1px 0 oklch(0.20 0.01 260 / 0.30);
-  }
-  [data-theme="retro"] .glass-hover:hover {
-    transform: translate(-2px,-2px);
-    box-shadow: 8px 8px 0 oklch(0.20 0.01 260 / 0.22);
-  }
-
-  /* Aero-only hero graphics; Retro uses its own stars/scanlines */
-  [data-theme="retro"] .hero-decor,
-  [data-theme="retro"] .hero-wave { display: none; }
+  /* Aero-only hero graphics */
+  [data-theme^="atom"] .hero-decor, [data-theme^="atom"] .hero-wave { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ambience-bubble, .ambience-scan, .aero-text, .glossy::after, .aero-blob, .ambience-glow {
+  .ambience-bubble, .ambience-scan, .aero-text, .glossy::after, .aero-blob, .ambience-glow, .ambience-atom-symbol {
     animation: none !important;
   }
 }
 
-/* Hide Next.js error overlay portal */
 nextjs-portal { display: none !important; }

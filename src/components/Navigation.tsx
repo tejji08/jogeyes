@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Youtube, BookOpen, Users, Home, Camera, Sparkles } from "lucide-react";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -53,8 +52,6 @@ export default function Navigation() {
               );
             })}
           </div>
-
-          <ThemeSwitcher />
         </div>
       </div>
     </nav>
