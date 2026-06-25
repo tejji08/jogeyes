@@ -2,16 +2,28 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Camera } from "lucide-react";
+import { Camera, Images } from "lucide-react";
 import { photographySamples } from "@/data/photography";
 import HeaderArt from "@/components/HeaderArt";
-import PhotoCollage from "@/components/PhotoCollage";
+import ImageWithPlaceholder from "@/components/ImageWithPlaceholder";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 const Lightbox = dynamic(() => import("@/components/Lightbox"), { ssr: false });
 
 export default function PhotographyPage() {
-  const [open, setOpen] = useState<{ open: boolean; index: number }>({ open: false, index: 0 });
+  // One album per category, preserving first-seen order.
+  const albums = Object.entries(
+    photographySamples.reduce((acc: Record<string, typeof photographySamples>, p) => {
+      acc[p.category] = acc[p.category] || [];
+      acc[p.category].push(p);
+      return acc;
+    }, {} as Record<string, typeof photographySamples>)
+  );
+
+  // Which album's slideshow is open (null = closed).
+  const [openCat, setOpenCat] = useState<string | null>(null);
+  const openAlbum = openCat ? albums.find(([cat]) => cat === openCat) : null;
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -25,36 +37,46 @@ export default function PhotographyPage() {
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold"><span className="aero-text">Photography</span></h1>
             </div>
-            <p className="text-lg text-muted-foreground">A small gallery — animals, landscapes, still life, and portraits. Add your own from the <a href="/studio" className="underline hover:text-primary">studio</a>.</p>
+            <p className="text-lg text-muted-foreground">Browse by collection — tap an album to open the slideshow. Add your own from the <a href="/studio" className="underline hover:text-primary">studio</a>.</p>
             <HeaderArt name="photography" />
           </div>
 
-          <div className="space-y-10">
-            {Object.entries(
-              photographySamples.reduce((acc: Record<string, typeof photographySamples>, p) => {
-                acc[p.category] = acc[p.category] || [];
-                acc[p.category].push(p);
-                return acc;
-              }, {} as Record<string, typeof photographySamples>)
-            ).map(([category, items], albumIndex) => (
-              <section key={category}>
-                <div className="flex items-baseline justify-between mb-4 gap-3">
-                  <h3 className="text-xl font-semibold capitalize">{category.replace('-', ' ')}</h3>
-                  <span className="text-sm text-muted-foreground">{items.length} {items.length === 1 ? "photo" : "photos"} · scroll →</span>
-                </div>
-                <PhotoCollage
-                  photos={items.map((p) => ({ id: p.id, src: p.src, caption: p.caption }))}
-                  layoutIndex={albumIndex}
-                  onOpen={(id) => setOpen({ open: true, index: photographySamples.findIndex((x) => x.id === id) })}
-                />
-              </section>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {albums.map(([category, items]) => {
+              const cover = items[0];
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setOpenCat(category)}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-3xl glass border-2 border-wood-accent/30 text-left transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <ImageWithPlaceholder
+                    src={cover.src}
+                    alt={category}
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <span className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
+                    <span>
+                      <span className="block text-lg font-semibold text-white capitalize drop-shadow">{category.replace('-', ' ')}</span>
+                      <span className="block text-sm text-white/80">{items.length} {items.length === 1 ? "photo" : "photos"}</span>
+                    </span>
+                    <span className="grid place-items-center w-9 h-9 rounded-full glossy border border-white/40 shrink-0">
+                      <Images className="w-4 h-4" />
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
-          {open?.open && (
+
+          {openAlbum && (
             <Lightbox
-              items={photographySamples.map((p) => ({ src: p.src, alt: p.caption || p.id, caption: p.caption }))}
-              index={open.index}
-              onClose={() => setOpen({ open: false, index: 0 })}
+              items={openAlbum[1].map((p) => ({ src: p.src, alt: p.caption || p.id, caption: p.caption }))}
+              index={0}
+              onClose={() => setOpenCat(null)}
             />
           )}
         </div>
