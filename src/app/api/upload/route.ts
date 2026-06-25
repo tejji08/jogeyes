@@ -35,29 +35,38 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Expected multipart form data" }, { status: 400 });
   }
 
-  const file = form.get("file");
-  if (!(file instanceof File)) {
+  // Accepts one or many files under the "file" field — single uploads still work.
+  const files = form.getAll("file").filter((f): f is File => f instanceof File);
+  if (files.length === 0) {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
-  }
-
-  const ext = path.extname(file.name).toLowerCase();
-  if (!ALLOWED_EXT.has(ext)) {
-    return NextResponse.json(
-      { error: `Unsupported file type ${ext || "(none)"}. Use jpg, png, webp, gif, or avif.` },
-      { status: 400 }
-    );
-  }
-
-  const bytes = await file.arrayBuffer();
-  if (bytes.byteLength > MAX_BYTES) {
-    return NextResponse.json({ error: "File too large (max 12 MB)." }, { status: 400 });
   }
 
   const uploadsDir = path.join(process.cwd(), "public", "uploads");
   await fs.mkdir(uploadsDir, { recursive: true });
 
-  const filename = `${Date.now()}-${slugify(file.name)}`;
-  await fs.writeFile(path.join(uploadsDir, filename), Buffer.from(bytes));
+  const urls: string[] = [];
+  const errors: string[] = [];
+  let i = 0;
+  for (const file of files) {
+    const ext = path.extname(file.name).toLowerCase();
+    if (!ALLOWED_EXT.has(ext)) {
+      errors.push(`${file.name}: unsupported type ${ext || "(none)"}`);
+      continue;
+    }
+    const bytes = await file.arrayBuffer();
+    if (bytes.byteLength > MAX_BYTES) {
+      errors.push(`${file.name}: too large (max 12 MB)`);
+      continue;
+    }
+    // unique even when many land in the same millisecond
+    const filename = `${Date.now()}-${(i++).toString(36)}-${slugify(file.name)}`;
+    await fs.writeFile(path.join(uploadsDir, filename), Buffer.from(bytes));
+    urls.push(`/uploads/${filename}`);
+  }
 
-  return NextResponse.json({ url: `/uploads/${filename}` });
+  if (urls.length === 0) {
+    return NextResponse.json({ error: errors.join("; ") || "Upload failed" }, { status: 400 });
+  }
+  // `url` kept for the existing single-image field; `urls` for bulk.
+  return NextResponse.json({ url: urls[0], urls, errors });
 }

@@ -1,24 +1,848 @@
 [
-  { "id": "p1", "src": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1000&h=700&fit=crop", "category": "animals", "caption": "Red fox, golden hour" },
-  { "id": "p6", "src": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=1000&h=700&fit=crop", "category": "animals", "caption": "Curious fox in the field" },
-  { "id": "p7", "src": "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=900&h=1100&fit=crop", "category": "animals", "caption": "Deer at dawn" },
-  { "id": "p8", "src": "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=1000&h=700&fit=crop", "category": "animals", "caption": "Cat in the window light" },
-  { "id": "p9", "src": "https://images.unsplash.com/photo-1444212477490-ca407925329e?w=1100&h=800&fit=crop", "category": "animals", "caption": "Sleepy pup" },
-
-  { "id": "p2", "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Mountain lake, blue hour" },
-  { "id": "p3", "src": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Still water, distant peaks" },
-  { "id": "p10", "src": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&h=800&fit=crop", "category": "landscapes", "caption": "Forest road into fog" },
-  { "id": "p11", "src": "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=900&h=1100&fit=crop", "category": "landscapes", "caption": "Valley overlook" },
-  { "id": "p12", "src": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1000&h=700&fit=crop", "category": "landscapes", "caption": "Pines under cloud" },
-  { "id": "p13", "src": "https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=1100&h=800&fit=crop", "category": "landscapes", "caption": "Rolling green hills" },
-
-  { "id": "p4", "src": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Window-light portrait" },
-  { "id": "p14", "src": "https://images.unsplash.com/photo-1463453091185-61582044d556?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Studio headshot" },
-  { "id": "p15", "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1000&h=700&fit=crop", "category": "portraits", "caption": "Natural smile, outdoors" },
-  { "id": "p16", "src": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&h=1100&fit=crop", "category": "portraits", "caption": "Profile, soft shadow" },
-
-  { "id": "p5", "src": "https://images.unsplash.com/photo-1495231916356-a86217efff12?w=1000&h=700&fit=crop", "category": "still-life", "caption": "Coffee and morning light" },
-  { "id": "p17", "src": "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=900&h=1100&fit=crop", "category": "still-life", "caption": "Plant on the sill" },
-  { "id": "p18", "src": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=1000&h=700&fit=crop", "category": "still-life", "caption": "Books and warm tones" },
-  { "id": "p19", "src": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1100&h=800&fit=crop", "category": "still-life", "caption": "Minimal desk setup" }
+  {
+    "id": "oregon-001",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-001.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-002",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-002.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-003",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-003.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-004",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-004.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-005",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-005.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-006",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-006.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-007",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-007.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-008",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-008.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-009",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-009.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-010",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-010.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-011",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-011.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-012",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-012.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-013",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-013.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-014",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-014.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-015",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-015.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-016",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-016.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-017",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-017.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-018",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-018.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-019",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-019.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-020",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-020.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-021",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-021.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-022",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-022.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-023",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-023.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-024",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-024.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-025",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-025.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-026",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-026.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-027",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-027.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-028",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-028.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-029",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-029.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-030",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-030.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-031",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-031.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-032",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-032.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-033",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-033.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-034",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-034.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-035",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-035.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-036",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-036.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-037",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-037.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-038",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-038.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-039",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-039.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-040",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-040.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-041",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-041.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "oregon-042",
+    "src": "/uploads/photography/oregon/jogeyes-oregon-042.jpg",
+    "category": "oregon",
+    "caption": ""
+  },
+  {
+    "id": "washington-001",
+    "src": "/uploads/photography/washington/jogeyes-washington-001.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-002",
+    "src": "/uploads/photography/washington/jogeyes-washington-002.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-003",
+    "src": "/uploads/photography/washington/jogeyes-washington-003.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-004",
+    "src": "/uploads/photography/washington/jogeyes-washington-004.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-005",
+    "src": "/uploads/photography/washington/jogeyes-washington-005.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-006",
+    "src": "/uploads/photography/washington/jogeyes-washington-006.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-007",
+    "src": "/uploads/photography/washington/jogeyes-washington-007.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-008",
+    "src": "/uploads/photography/washington/jogeyes-washington-008.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-009",
+    "src": "/uploads/photography/washington/jogeyes-washington-009.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-010",
+    "src": "/uploads/photography/washington/jogeyes-washington-010.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-011",
+    "src": "/uploads/photography/washington/jogeyes-washington-011.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-012",
+    "src": "/uploads/photography/washington/jogeyes-washington-012.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-013",
+    "src": "/uploads/photography/washington/jogeyes-washington-013.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-014",
+    "src": "/uploads/photography/washington/jogeyes-washington-014.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-015",
+    "src": "/uploads/photography/washington/jogeyes-washington-015.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-016",
+    "src": "/uploads/photography/washington/jogeyes-washington-016.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-017",
+    "src": "/uploads/photography/washington/jogeyes-washington-017.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-018",
+    "src": "/uploads/photography/washington/jogeyes-washington-018.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-019",
+    "src": "/uploads/photography/washington/jogeyes-washington-019.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-020",
+    "src": "/uploads/photography/washington/jogeyes-washington-020.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-021",
+    "src": "/uploads/photography/washington/jogeyes-washington-021.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-022",
+    "src": "/uploads/photography/washington/jogeyes-washington-022.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-023",
+    "src": "/uploads/photography/washington/jogeyes-washington-023.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-024",
+    "src": "/uploads/photography/washington/jogeyes-washington-024.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-025",
+    "src": "/uploads/photography/washington/jogeyes-washington-025.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-026",
+    "src": "/uploads/photography/washington/jogeyes-washington-026.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "washington-027",
+    "src": "/uploads/photography/washington/jogeyes-washington-027.jpg",
+    "category": "washington",
+    "caption": ""
+  },
+  {
+    "id": "mexico-001",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-001.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-002",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-002.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-003",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-003.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-004",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-004.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-005",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-005.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-006",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-006.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-007",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-007.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-008",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-008.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-009",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-009.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-010",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-010.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-011",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-011.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-012",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-012.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-013",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-013.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-014",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-014.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-015",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-015.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-016",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-016.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-017",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-017.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-018",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-018.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-019",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-019.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-020",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-020.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-021",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-021.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-022",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-022.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "mexico-023",
+    "src": "/uploads/photography/mexico/jogeyes-mexico-023.jpg",
+    "category": "mexico",
+    "caption": ""
+  },
+  {
+    "id": "canada-001",
+    "src": "/uploads/photography/canada/jogeyes-canada-001.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-002",
+    "src": "/uploads/photography/canada/jogeyes-canada-002.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-003",
+    "src": "/uploads/photography/canada/jogeyes-canada-003.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-004",
+    "src": "/uploads/photography/canada/jogeyes-canada-004.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-005",
+    "src": "/uploads/photography/canada/jogeyes-canada-005.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-006",
+    "src": "/uploads/photography/canada/jogeyes-canada-006.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-007",
+    "src": "/uploads/photography/canada/jogeyes-canada-007.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-008",
+    "src": "/uploads/photography/canada/jogeyes-canada-008.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-009",
+    "src": "/uploads/photography/canada/jogeyes-canada-009.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-010",
+    "src": "/uploads/photography/canada/jogeyes-canada-010.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-011",
+    "src": "/uploads/photography/canada/jogeyes-canada-011.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-012",
+    "src": "/uploads/photography/canada/jogeyes-canada-012.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-013",
+    "src": "/uploads/photography/canada/jogeyes-canada-013.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-014",
+    "src": "/uploads/photography/canada/jogeyes-canada-014.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-015",
+    "src": "/uploads/photography/canada/jogeyes-canada-015.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-016",
+    "src": "/uploads/photography/canada/jogeyes-canada-016.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "canada-017",
+    "src": "/uploads/photography/canada/jogeyes-canada-017.jpg",
+    "category": "canada",
+    "caption": ""
+  },
+  {
+    "id": "arizona-001",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-001.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-002",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-002.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-003",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-003.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-004",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-004.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-005",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-005.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-006",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-006.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-007",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-007.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-008",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-008.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-009",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-009.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-010",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-010.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-011",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-011.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-012",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-012.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-013",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-013.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "arizona-014",
+    "src": "/uploads/photography/arizona/jogeyes-arizona-014.jpg",
+    "category": "arizona",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-001",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-001.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-002",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-002.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-003",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-003.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-004",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-004.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-005",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-005.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-006",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-006.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "waterfalls-007",
+    "src": "/uploads/photography/waterfalls/jogeyes-waterfalls-007.jpg",
+    "category": "waterfalls",
+    "caption": ""
+  },
+  {
+    "id": "other-001",
+    "src": "/uploads/photography/other/jogeyes-other-001.jpg",
+    "category": "other",
+    "caption": ""
+  },
+  {
+    "id": "other-002",
+    "src": "/uploads/photography/other/jogeyes-other-002.jpg",
+    "category": "other",
+    "caption": ""
+  },
+  {
+    "id": "other-003",
+    "src": "/uploads/photography/other/jogeyes-other-003.jpg",
+    "category": "other",
+    "caption": ""
+  },
+  {
+    "id": "other-004",
+    "src": "/uploads/photography/other/jogeyes-other-004.jpg",
+    "category": "other",
+    "caption": ""
+  },
+  {
+    "id": "other-005",
+    "src": "/uploads/photography/other/jogeyes-other-005.jpg",
+    "category": "other",
+    "caption": ""
+  },
+  {
+    "id": "trees-001",
+    "src": "/uploads/photography/trees/jogeyes-trees-001.jpg",
+    "category": "trees",
+    "caption": ""
+  },
+  {
+    "id": "trees-002",
+    "src": "/uploads/photography/trees/jogeyes-trees-002.jpg",
+    "category": "trees",
+    "caption": ""
+  },
+  {
+    "id": "trees-003",
+    "src": "/uploads/photography/trees/jogeyes-trees-003.jpg",
+    "category": "trees",
+    "caption": ""
+  },
+  {
+    "id": "trees-004",
+    "src": "/uploads/photography/trees/jogeyes-trees-004.jpg",
+    "category": "trees",
+    "caption": ""
+  },
+  {
+    "id": "australia-001",
+    "src": "/uploads/photography/australia/jogeyes-australia-001.jpg",
+    "category": "australia",
+    "caption": ""
+  },
+  {
+    "id": "australia-002",
+    "src": "/uploads/photography/australia/jogeyes-australia-002.jpg",
+    "category": "australia",
+    "caption": ""
+  }
 ]

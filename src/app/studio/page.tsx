@@ -105,7 +105,7 @@ const SCHEMAS: Record<string, Schema> = {
     newItem: () => ({ id: rid(), src: "", category: "landscapes", caption: "" }),
     fields: [
       { key: "src", label: "Image", type: "image" },
-      { key: "category", label: "Category (= collage/album it scrolls in)", type: "select", options: ["animals", "landscapes", "still-life", "portraits"] },
+      { key: "category", label: "Category (= gallery section it scrolls in)", type: "text", options: ["animals", "landscapes", "still-life", "portraits"], hint: "Type any category — each unique value becomes its own section (e.g. oregon, washington)" },
       { key: "caption", label: "Caption (optional)", type: "text", hint: "Shown on hover" },
     ],
   },
@@ -149,6 +149,20 @@ export default function StudioPage() {
   }, [authed]);
 
   const schema = SCHEMAS[active];
+  const photoSuggestions =
+    active === "photography"
+      ? Array.from(
+          new Set([
+            "animals",
+            "landscapes",
+            "still-life",
+            "portraits",
+            ...(((store.photography as Item[]) || [])
+              .map((p) => String(p.category || ""))
+              .filter(Boolean)),
+          ])
+        )
+      : [];
   const flash = (kind: "ok" | "err", text: string) => {
     setMsg({ kind, text });
     setTimeout(() => setMsg(null), 4000);
@@ -161,6 +175,15 @@ export default function StudioPage() {
     const json = await res.json();
     if (!res.ok) throw new Error(json.error || "Upload failed");
     return json.url as string;
+  }, []);
+
+  const uploadMany = useCallback(async (files: File[]): Promise<string[]> => {
+    const fd = new FormData();
+    files.forEach((f) => fd.append("file", f));
+    const res = await fetch("/api/upload", { method: "POST", body: fd });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error || "Upload failed");
+    return (json.urls as string[]) || [];
   }, []);
 
   function updateListField(index: number, key: string, value: unknown) {
@@ -182,6 +205,9 @@ export default function StudioPage() {
       arr.splice(index, 1);
       return { ...s, [active]: arr };
     });
+  }
+  function bulkAdd(items: Item[]) {
+    setStore((s) => ({ ...s, [active]: [...((s[active] as Item[]) || []), ...items] }));
   }
 
   async function save() {
@@ -329,6 +355,18 @@ export default function StudioPage() {
           </div>
         ) : (
           <div className="space-y-5">
+            {schema.fields.some((f) => f.type === "image") && (
+              <BulkAdd
+                imageKey={schema.fields.find((f) => f.type === "image")!.key}
+                hasCategory={schema.fields.some((f) => f.key === "category")}
+                suggestions={photoSuggestions}
+                makeItem={schema.newItem!}
+                uploadMany={uploadMany}
+                onAdd={bulkAdd}
+                onError={(t) => flash("err", t)}
+                singular={schema.singular || "item"}
+              />
+            )}
             {(store[active] as Item[]).map((item, i) => (
               <div key={(item.id as string) || i} className="glass rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
@@ -430,11 +468,21 @@ function FieldInput({
       )}
 
       {field.type === "text" && (
-        <input
-          value={str}
-          onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-xl bg-white/70 border border-white/80 px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/40"
-        />
+        <>
+          <input
+            value={str}
+            onChange={(e) => onChange(e.target.value)}
+            list={field.options ? `dl-${field.key}` : undefined}
+            className="w-full rounded-xl bg-white/70 border border-white/80 px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+          />
+          {field.options && (
+            <datalist id={`dl-${field.key}`}>
+              {field.options.map((o) => (
+                <option key={o} value={o} />
+              ))}
+            </datalist>
+          )}
+        </>
       )}
 
       {field.type === "select" && (
@@ -477,5 +525,93 @@ function FieldInput({
 
       {field.hint && <span className="block text-xs text-muted-foreground mt-1">{field.hint}</span>}
     </label>
+  );
+}
+
+function BulkAdd({
+  imageKey,
+  hasCategory,
+  suggestions,
+  makeItem,
+  uploadMany,
+  onAdd,
+  onError,
+  singular,
+}: {
+  imageKey: string;
+  hasCategory: boolean;
+  suggestions: string[];
+  makeItem: () => Item;
+  uploadMany: (files: File[]) => Promise<string[]>;
+  onAdd: (items: Item[]) => void;
+  onError: (t: string) => void;
+  singular: string;
+}) {
+  const [category, setCategory] = useState(suggestions[0] || "landscapes");
+  const [busy, setBusy] = useState(false);
+  const [n, setN] = useState(0);
+
+  async function onFiles(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files || []);
+    if (files.length === 0) return;
+    setBusy(true);
+    setN(files.length);
+    try {
+      const urls = await uploadMany(files);
+      const items = urls.map((url) => {
+        const it = makeItem() as Record<string, unknown>;
+        it[imageKey] = url;
+        if (hasCategory) it.category = category.trim() || "landscapes";
+        return it as Item;
+      });
+      onAdd(items);
+    } catch (err) {
+      onError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setBusy(false);
+      setN(0);
+      e.target.value = "";
+    }
+  }
+
+  return (
+    <div className="glass rounded-2xl p-5 border-2 border-dashed border-primary/30">
+      <div className="flex items-center gap-2 mb-3">
+        <Upload className="w-5 h-5 text-primary" />
+        <span className="font-semibold">Bulk add — upload many at once</span>
+      </div>
+      <div className="flex flex-wrap items-end gap-3">
+        {hasCategory && (
+          <label className="block">
+            <span className="block text-xs font-medium mb-1 text-muted-foreground">Category for these</span>
+            <input
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              list="dl-bulk-cat"
+              placeholder="e.g. oregon"
+              className="rounded-xl bg-white/70 border border-white/80 px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            <datalist id="dl-bulk-cat">
+              {suggestions.map((o) => (
+                <option key={o} value={o} />
+              ))}
+            </datalist>
+          </label>
+        )}
+        <label
+          className={`inline-flex items-center gap-2 glossy rounded-xl px-5 py-2.5 font-medium cursor-pointer ${
+            busy ? "opacity-60 pointer-events-none" : ""
+          }`}
+        >
+          {busy ? <Loader2 className="w-5 h-5 animate-spin" /> : <Plus className="w-5 h-5" />}
+          {busy ? `Uploading ${n}…` : "Choose pictures"}
+          <input type="file" accept="image/*" multiple onChange={onFiles} className="hidden" />
+        </label>
+      </div>
+      <p className="text-xs text-muted-foreground mt-2">
+        Select multiple files at once — each becomes a new {singular}
+        {hasCategory ? " in that category" : ""}. Then hit Save.
+      </p>
+    </div>
   );
 }
