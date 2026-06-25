@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import { Camera, Images } from "lucide-react";
 import { photographySamples } from "@/data/photography";
 import HeaderArt from "@/components/HeaderArt";
-import ImageWithPlaceholder from "@/components/ImageWithPlaceholder";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 const Lightbox = dynamic(() => import("@/components/Lightbox"), { ssr: false });
@@ -41,7 +40,7 @@ export default function PhotographyPage() {
             <HeaderArt name="photography" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
             {albums.map(([category, items]) => {
               const cover = items[0];
               return (
@@ -49,17 +48,18 @@ export default function PhotographyPage() {
                   key={category}
                   type="button"
                   onClick={() => setOpenCat(category)}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-3xl glass border-2 border-wood-accent/30 text-left transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="group relative mb-6 w-full break-inside-avoid overflow-hidden rounded-3xl glass border-2 border-wood-accent/30 text-left transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <ImageWithPlaceholder
+                  {/* Native img so each card takes the photo's natural aspect ratio — no crop, no bars. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={cover.src}
                     alt={category}
-                    fit="contain"
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+                    loading="lazy"
+                    className="block w-full h-auto transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  <span className="absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 p-4 flex items-end justify-between gap-3">
                     <span>
                       <span className="block text-lg font-semibold text-white capitalize drop-shadow">{category.replace('-', ' ')}</span>
                       <span className="block text-sm text-white/80">{items.length} {items.length === 1 ? "photo" : "photos"}</span>
