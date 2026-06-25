@@ -32,7 +32,7 @@ function lowRes(src: string) {
   }
 }
 
-export default function ImageWithPlaceholder({ src, alt, className, sizes }: { src: string; alt?: string; className?: string; sizes?: string }) {
+export default function ImageWithPlaceholder({ src, alt, className, sizes, fit = "cover" }: { src: string; alt?: string; className?: string; sizes?: string; fit?: "cover" | "contain" }) {
   const [loaded, setLoaded] = React.useState(false);
   const [lqip, setLqip] = React.useState<string | null>(null);
   const low = lowRes(src);
@@ -56,7 +56,14 @@ export default function ImageWithPlaceholder({ src, alt, className, sizes }: { s
         src={low}
         alt={alt || ""}
         fill
-        style={{ objectFit: 'cover', filter: loaded ? 'blur(0px)' : 'blur(6px)', transition: 'filter 300ms ease' }}
+        style={{
+          objectFit: 'cover',
+          // For contained images, keep this layer as a soft blurred backdrop
+          // filling the letterbox space instead of snapping sharp.
+          filter: fit === 'contain' ? 'blur(16px)' : loaded ? 'blur(0px)' : 'blur(6px)',
+          transform: fit === 'contain' ? 'scale(1.1)' : undefined,
+          transition: 'filter 300ms ease',
+        }}
         sizes={sizes}
         onLoadingComplete={() => setLoaded(true)}
         {...placeholderProps}
@@ -65,7 +72,7 @@ export default function ImageWithPlaceholder({ src, alt, className, sizes }: { s
         src={src}
         alt={alt || ""}
         fill
-        style={{ objectFit: 'cover', opacity: loaded ? 1 : 0, transition: 'opacity 250ms ease' }}
+        style={{ objectFit: fit, opacity: loaded ? 1 : 0, transition: 'opacity 250ms ease' }}
         sizes={sizes}
         onLoadingComplete={() => setLoaded(true)}
       />
