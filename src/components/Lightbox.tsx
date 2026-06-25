@@ -36,7 +36,7 @@ export default function Lightbox({ items, index = 0, onClose }: { items: { src: 
             </button>
 
             <div className="flex-1 bg-black rounded-md overflow-hidden">
-              <ImageWithPlaceholder src={current.src} alt={current.alt || ''} className="w-full h-[60vh] object-contain bg-black" />
+              <ImageWithPlaceholder src={current.src} alt={current.alt || ''} fit="contain" className="w-full h-[75vh] bg-black" />
               {current.caption && <div className="p-3 text-sm text-muted-foreground bg-card/80">{current.caption}</div>}
             </div>
 
