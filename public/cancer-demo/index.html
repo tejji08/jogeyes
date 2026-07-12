@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colorectal Histology Classifier</title>
+<style>
+  :root{
+    --bg:#f6f8fb; --panel:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --line:#e2e8f0; --brand:#2563eb; --brand-2:#3b82f6; --brand-soft:#eff6ff;
+    --shadow:0 1px 3px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0b1220; --panel:#111a2e; --ink:#e5edff; --muted:#94a3b8;
+      --line:#1f2b45; --brand:#3b82f6; --brand-2:#60a5fa; --brand-soft:#0f1e3a;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+  header h1{font-size:1.6rem;margin:0 0 4px;letter-spacing:-.02em}
+  header p{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+  .disclaimer{background:var(--brand-soft);border:1px solid var(--line);border-left:3px solid var(--brand);
+    color:var(--ink);padding:10px 14px;border-radius:10px;font-size:.82rem;margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+  .drop{border:2px dashed var(--line);border-radius:12px;min-height:280px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;color:var(--muted);cursor:pointer;
+    transition:.15s;position:relative;overflow:hidden}
+  .drop.hover{border-color:var(--brand);background:var(--brand-soft)}
+  .drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+  .drop .hint{padding:20px;z-index:1}
+  .drop .hint svg{width:34px;height:34px;stroke:var(--brand);margin-bottom:8px}
+  .samples{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .samples button{width:52px;height:52px;padding:0;border:2px solid var(--line);border-radius:9px;
+    overflow:hidden;cursor:pointer;background:#000;transition:.15s}
+  .samples button:hover{border-color:var(--brand);transform:translateY(-1px)}
+  .samples img{width:100%;height:100%;object-fit:cover;display:block}
+  .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+  .top{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;min-height:40px}
+  .top .name{font-size:1.5rem;font-weight:650;letter-spacing:-.02em}
+  .top .conf{font-size:1.1rem;color:var(--brand-2);font-weight:600}
+  .bar{margin:9px 0}
+  .bar .row{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:3px}
+  .bar .row .pct{color:var(--muted);font-variant-numeric:tabular-nums}
+  .track{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+  .fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));border-radius:99px;width:0;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+  .bar.lead .name{color:var(--brand-2);font-weight:650}
+  .status{color:var(--muted);font-size:.85rem;margin-top:14px;min-height:20px}
+  footer{color:var(--muted);font-size:.78rem;margin-top:26px;text-align:center}
+  a{color:var(--brand-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🔬 Colorectal Histology Tissue Classifier</h1>
+    <p>A ResNet50 model that sorts colorectal histology tiles into 8 tissue types (Kather NCT-CRC). Runs entirely in your browser — no image ever leaves this page.</p>
+  </header>
+  <div class="disclaimer">
+    <strong>Educational demonstration only — not a medical device and not for diagnostic use.</strong>
+    It classifies tissue <em>type</em> in histology tiles; it does not diagnose cancer in a patient.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Input</div>
+      <div class="drop" id="drop">
+        <img id="preview" alt="" hidden>
+        <div class="hint" id="hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M20 16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2"/></svg>
+          <div><strong>Drop a histology tile</strong><br>or click to browse</div>
+        </div>
+      </div>
+      <input type="file" id="file" accept="image/*" hidden>
+      <div class="label" style="margin-top:16px">Try a sample tile</div>
+      <div class="samples" id="samples"></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Prediction</div>
+      <div class="top"><span class="name" id="topName">—</span><span class="conf" id="topConf"></span></div>
+      <div id="bars"></div>
+      <div class="status" id="status">Loading model…</div>
+    </div>
+  </div>
+
+  <footer>
+    Model: ResNet50 transfer-learning · 8 classes · runs client-side via
+    <a href="https://onnxruntime.ai/docs/tutorials/web/" target="_blank" rel="noopener">ONNX Runtime Web</a>.
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+<script>
+const CLASSES = ["adipose","complex","debris","empty","lympho","mucosa","stroma","tumor"];
+const PRETTY = {adipose:"Adipose (fat)",complex:"Complex stroma",debris:"Debris",empty:"Empty / background",
+  lympho:"Lymphocytes",mucosa:"Mucosa (glands)",stroma:"Stroma",tumor:"Tumor epithelium"};
+const SIZE = 224;
+
+const $ = id => document.getElementById(id);
+const statusEl=$("status"), drop=$("drop"), preview=$("preview"), hint=$("hint"),
+      fileInp=$("file"), barsEl=$("bars"), topName=$("topName"), topConf=$("topConf");
+
+let session=null, inputName=null;
+ort.env.wasm.numThreads = 1;           // works on any static host (no COOP/COEP needed)
+
+(async () => {
+  try{
+    session = await ort.InferenceSession.create("model.onnx", {executionProviders:["wasm"]});
+    inputName = session.inputNames[0];
+    statusEl.textContent = "Model ready. Drop a tile or pick a sample.";
+  }catch(e){ statusEl.textContent = "Failed to load model: "+e.message; }
+})();
+
+// --- preprocessing: mirror helpers.preprocess exactly ---
+// resize_with_pad -> 224x224, keep 0-255 scale, NO normalization.
+function preprocess(img){
+  const c = document.createElement("canvas"); c.width=SIZE; c.height=SIZE;
+  const ctx = c.getContext("2d", {willReadFrequently:true});
+  ctx.fillStyle = "#000"; ctx.fillRect(0,0,SIZE,SIZE);          // pad value = 0
+  const scale = Math.min(SIZE/img.naturalWidth, SIZE/img.naturalHeight);
+  const nw = Math.round(img.naturalWidth*scale), nh = Math.round(img.naturalHeight*scale);
+  const ox = Math.floor((SIZE-nw)/2), oy = Math.floor((SIZE-nh)/2);
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high"; // ~ bilinear/antialias
+  ctx.drawImage(img, ox, oy, nw, nh);
+  const {data} = ctx.getImageData(0,0,SIZE,SIZE);              // RGBA, 0-255
+  const arr = new Float32Array(SIZE*SIZE*3);                    // NHWC, 0-255
+  for(let p=0,q=0;p<data.length;p+=4){ arr[q++]=data[p]; arr[q++]=data[p+1]; arr[q++]=data[p+2]; }
+  return new ort.Tensor("float32", arr, [1,SIZE,SIZE,3]);
+}
+
+async function classify(img){
+  if(!session){ statusEl.textContent="Model still loading…"; return; }
+  statusEl.textContent="Analyzing…";
+  const t0=performance.now();
+  const out = await session.run({[inputName]: preprocess(img)});
+  const probs = Array.from(out[session.outputNames[0]].data);
+  render(probs);
+  statusEl.textContent = `Done in ${Math.round(performance.now()-t0)} ms · all local`;
+}
+
+function render(probs){
+  const ranked = probs.map((v,i)=>({cls:CLASSES[i],v})).sort((a,b)=>b.v-a.v);
+  topName.textContent = PRETTY[ranked[0].cls];
+  topConf.textContent = (ranked[0].v*100).toFixed(1)+"%";
+  barsEl.innerHTML="";
+  ranked.forEach((r,idx)=>{
+    const wrap=document.createElement("div"); wrap.className="bar"+(idx===0?" lead":"");
+    wrap.innerHTML=`<div class="row"><span class="name">${PRETTY[r.cls]}</span>
+      <span class="pct">${(r.v*100).toFixed(1)}%</span></div>
+      <div class="track"><div class="fill"></div></div>`;
+    barsEl.appendChild(wrap);
+    requestAnimationFrame(()=>{ wrap.querySelector(".fill").style.width=(r.v*100)+"%"; });
+  });
+}
+
+function showAndClassify(src){
+  preview.src=src; preview.hidden=false; hint.style.display="none";
+  const img=new Image(); img.onload=()=>classify(img); img.src=src;
+}
+
+// --- input wiring ---
+drop.addEventListener("click", ()=>fileInp.click());
+fileInp.addEventListener("change", e=>{ const f=e.target.files[0]; if(f) showAndClassify(URL.createObjectURL(f)); });
+["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("hover");}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("hover");}));
+drop.addEventListener("drop", e=>{ const f=e.dataTransfer.files[0]; if(f) showAndClassify(URL.createObjectURL(f)); });
+
+// --- sample tiles ---
+const samplesEl=$("samples");
+CLASSES.forEach(c=>{
+  const b=document.createElement("button"); b.title=PRETTY[c];
+  b.innerHTML=`<img src="samples/${c}.png" alt="${c}">`;
+  b.onclick=()=>showAndClassify(`samples/${c}.png`);
+  samplesEl.appendChild(b);
+});
+</script>
+</body>
+</html>
