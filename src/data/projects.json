@@ -1,0 +1,29 @@
+[
+  {
+    "id": "colorectal-histology",
+    "title": "Colorectal Histology Classifier",
+    "blurb": "A ResNet50 deep-learning model that classifies colorectal tissue tiles into 8 histological categories (Kather NCT-CRC). Trained in a Google Colab AI course, then converted to a float16 ONNX model that runs entirely in your browser — no backend, no server cost. Educational demo, not for diagnostic use.",
+    "stack": "TensorFlow · Keras · ONNX Runtime Web · ResNet50",
+    "status": "Live",
+    "link": "/cancer-demo/index.html",
+    "linkLabel": "Try the live demo"
+  },
+  {
+    "id": "ml-pipeline",
+    "title": "ML Pipeline",
+    "blurb": "A from-scratch machine-learning training and experimentation platform: GPU-accelerated training, transfer learning across datasets, live experiment monitoring, and real-world forecasting work (air-quality / PM2.5 prediction across cities). Built to explore how models generalize across domains.",
+    "stack": "PyTorch · CUDA · Transfer Learning · Time-Series Forecasting",
+    "status": "In progress",
+    "link": "",
+    "linkLabel": ""
+  },
+  {
+    "id": "studybot",
+    "title": "StudyBot",
+    "blurb": "A browser-based study suite that pulls together focus tools and study aids into one extension. An ongoing side project exploring how small, practical tools can make studying less painful.",
+    "stack": "JavaScript · Chrome Extension (MV3)",
+    "status": "In progress",
+    "link": "",
+    "linkLabel": ""
+  }
+]

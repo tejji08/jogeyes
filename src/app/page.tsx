@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Youtube, BookOpen, Users, ArrowRight, Camera, Sparkles, Star, Send, Mail } from "lucide-react";
+import { Youtube, BookOpen, ArrowRight, Camera, Sparkles, Star, Send, Mail, BrainCircuit, HandHeart, GraduationCap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -37,11 +37,25 @@ export default function Home() {
       color: "from-sky-400 to-blue-500",
     },
     {
-      title: "Community",
-      description: "Join the Discord and connect over music, writing, and YouTube updates.",
-      icon: Users,
-      href: "/community",
+      title: "AI/ML Projects",
+      description: "Machine-learning models and tools — from a browser-based cancer-tissue classifier to training pipelines.",
+      icon: BrainCircuit,
+      href: "/projects",
+      color: "from-violet-400 to-purple-500",
+    },
+    {
+      title: "My Work",
+      description: "Teaching Python, running community events, and volunteering around Seattle.",
+      icon: HandHeart,
+      href: "/work",
       color: "from-emerald-300 to-green-500",
+    },
+    {
+      title: "Academics",
+      description: "Coursework, clubs, athletics, and school involvement.",
+      icon: GraduationCap,
+      href: "/academics",
+      color: "from-teal-300 to-cyan-500",
     },
   ];
 
@@ -119,7 +133,12 @@ export default function Home() {
       <section className="px-4 sm:px-6 lg:px-8 -mt-6 mb-8">
         <div className="container mx-auto max-w-3xl">
           <Card className="glass border-0 rounded-2xl p-6 sm:p-8 text-center pat pat-dots overflow-hidden">
-            <p className="text-base sm:text-lg text-foreground/80 leading-relaxed">{profile.bio}</p>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm font-medium text-primary mb-4">
+              <Sparkles className="w-4 h-4" /> About me
+            </span>
+            <p className="text-base sm:text-lg text-foreground/80 leading-relaxed">
+              {profile.about || profile.bio}
+            </p>
           </Card>
         </div>
       </section>
@@ -136,12 +155,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {sections.map((section) => {
               const Icon = section.icon;
-              const isCommunity = section.href === "/community";
               return (
                 <Link
                   key={section.href}
                   href={section.href}
-                  className={isCommunity ? "md:col-span-2" : ""}
                 >
                   <Card className="group relative overflow-hidden p-8 h-full glass glass-hover border-0 rounded-2xl">
                     <div className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-10 transition-opacity`} />

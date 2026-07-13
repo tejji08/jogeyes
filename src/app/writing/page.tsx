@@ -6,8 +6,9 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, MessageCircle, Eye, BookOpen, Feather } from "lucide-react";
+import { Heart, MessageCircle, Eye, BookOpen, Feather, ExternalLink } from "lucide-react";
 import { posts, Post, PostTag } from "@/data/writing";
+import { profile } from "@/data/profile";
 import HeaderArt from "@/components/HeaderArt";
 
 export default function WritingPage() {
@@ -67,6 +68,33 @@ export default function WritingPage() {
             <p className="text-lg text-muted-foreground">
               The 4Corner Collection and more — fiction, sci-fi, and experimental pieces.
             </p>
+            {(profile.ao3Url || profile.wattpadUrl) && (
+              <div className="flex flex-wrap items-center gap-3 mt-5">
+                <span className="text-sm text-muted-foreground">
+                  Read the full works{profile.penName ? ` as @${profile.penName}` : ""} on:
+                </span>
+                {profile.ao3Url && (
+                  <a
+                    href={profile.ao3Url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass text-sm font-semibold hover:-translate-y-0.5 transition-all"
+                  >
+                    AO3 <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {profile.wattpadUrl && (
+                  <a
+                    href={profile.wattpadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass text-sm font-semibold hover:-translate-y-0.5 transition-all"
+                  >
+                    Wattpad <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            )}
             <HeaderArt name="writing" />
           </div>
 

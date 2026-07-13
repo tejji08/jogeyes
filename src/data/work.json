@@ -1,0 +1,29 @@
+[
+  {
+    "id": "kct",
+    "org": "Kids Coming Together (KCT)",
+    "role": "Events Intern",
+    "location": "Sammamish, WA",
+    "blurb": "I serve as an Events Intern for Kids Coming Together, a Sammamish-based organization. I help plan and run community events, coordinating logistics and supporting the team behind the scenes.",
+    "link": "",
+    "linkLabel": ""
+  },
+  {
+    "id": "python-teaching",
+    "org": "Sikh Center of Seattle",
+    "role": "Python Instructor",
+    "location": "Seattle, WA",
+    "blurb": "I teach Python to middle and elementary school students at the Sikh Center of Seattle — introducing young students to programming fundamentals in a hands-on, approachable way.",
+    "link": "",
+    "linkLabel": ""
+  },
+  {
+    "id": "food-truck",
+    "org": "Free Vegetarian Food Truck",
+    "role": "Volunteer",
+    "location": "Seattle, WA",
+    "blurb": "I volunteered with a free food truck in Seattle that serves vegetarian meals to the community, helping prepare and hand out food to those who need it.",
+    "link": "",
+    "linkLabel": ""
+  }
+]

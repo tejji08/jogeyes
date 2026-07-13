@@ -12,6 +12,10 @@ export interface Profile {
   tagline: string;
   pitch: string;
   bio: string;
+  about: string;
+  penName: string;
+  ao3Url: string;
+  wattpadUrl: string;
   location: string;
   available: boolean;
   email: string;

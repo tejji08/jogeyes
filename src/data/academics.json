@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ap-classes",
+    "title": "AP Coursework",
+    "category": "academics",
+    "blurb": "I've taken a range of Advanced Placement classes, challenging myself across subjects and building a strong academic foundation.",
+    "date": "Ongoing"
+  },
+  {
+    "id": "hosa",
+    "title": "HOSA — Future Health Professionals",
+    "category": "club",
+    "blurb": "An active member of HOSA, exploring the health-science field through competitions, events, and hands-on learning.",
+    "date": ""
+  },
+  {
+    "id": "tennis",
+    "title": "School Tennis Team",
+    "category": "athletics",
+    "blurb": "An active member of the school tennis team — competing, training, and representing my school.",
+    "date": ""
+  }
+]

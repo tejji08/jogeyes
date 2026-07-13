@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Youtube, BookOpen, Users, Home, Camera, Sparkles, Mail } from "lucide-react";
+import { Youtube, BookOpen, Home, Camera, Sparkles, Mail, BrainCircuit, HandHeart, GraduationCap } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
 
-  // Music is intentionally hidden for now.
+  // Music and Community are intentionally hidden for now.
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/youtube", label: "YouTube", icon: Youtube },
     { href: "/writing", label: "Writing", icon: BookOpen },
     { href: "/photography", label: "Photography", icon: Camera },
-    { href: "/community", label: "Community", icon: Users },
+    { href: "/projects", label: "AI/ML", icon: BrainCircuit },
+    { href: "/work", label: "My Work", icon: HandHeart },
+    { href: "/academics", label: "Academics", icon: GraduationCap },
     { href: "/contact", label: "Contact", icon: Mail },
   ];
 

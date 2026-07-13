@@ -6,7 +6,7 @@ import { isAuthed } from "@/lib/studio-auth";
 export const runtime = "nodejs";
 
 // Content types the studio can edit -> their JSON file under src/data.
-const ALLOWED = ["videos", "music", "writing", "photography", "profile", "services"] as const;
+const ALLOWED = ["videos", "music", "writing", "photography", "profile", "services", "projects", "work", "academics"] as const;
 type ContentType = (typeof ALLOWED)[number];
 
 function fileFor(type: string): string | null {
